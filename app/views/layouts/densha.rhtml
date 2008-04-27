@@ -34,7 +34,7 @@
                 open source ruby workflow and bpm engine
             </div>
             <div style="float:right" id="top-menu">
-                <%= render_admin_menu if session[:user].admin? %>
+                <%= render_admin_menu if session[:user] && session[:user].admin? %>
                 <%= render_menu %>
             </div>
         </div>

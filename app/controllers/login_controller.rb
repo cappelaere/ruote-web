@@ -267,7 +267,7 @@ class LoginController < ApplicationController
        session[:user] = @user
        flash[:notice] = "Logged in as #{CGI::escape(response.identity_url)}"
 
-       redirect_back_or_default :action => "welcome"
+       redirect_back_or_default('/')
        return
 
      when OpenID::FAILURE
@@ -298,7 +298,7 @@ class LoginController < ApplicationController
   
   def successful_login
     session[:user] = @user
-    redirect_back_or_default('/launchp')
+    redirect_back_or_default('/')
     flash[:notice] = "Welcome: #{@user.name}"
   end
    

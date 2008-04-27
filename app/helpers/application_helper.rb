@@ -88,12 +88,17 @@ module ApplicationHelper
   end
 
   def render_menu
-
+    if session[:user] != nil
+      login_menu = [ "login", "logout", "logout", "quit this application" ]
+    else
+      login_menu = [ "login", "login", "login", "login to this application" ]      
+    end
+    
     do_render_menu([
       [ "stores", "index", "view stores", "list stores and workitems available in them" ],
       [ "launchp", "index", "launch process", "start a new business process instance" ],
       [ "engine", "index", "engine", "browse information about the workflow/bpm engine itself" ],
-      [ "login", "logout", "logout", "quit this application" ]
+      login_menu
     ])
   end
 
