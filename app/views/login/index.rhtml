@@ -25,15 +25,28 @@ There is an <a href="http://openwferu.rubyforge.org/rquickstart.html">OpenWFEru 
         <div class="login_value">
             <%= text_field_tag :name, params[:name], { :id => "tf_username" } %>
         </div>
+
         <div class="login_key">
             <label for="password">password </label>
         </div>
         <div class="login_value">
             <%= password_field_tag :password %>
         </div>
-        <div class="login_key">
+
+ 		
+		<div class="login_key">
+            <label for="openid_url">or use your OpenID </label>
+		</div>
+
+		<div class="login_value">
+            <input id="openid_url" name="openid_url" type="text" size='50' />	
+		</div>
+
+       <div class="login_key">
             &nbsp;
         </div>
+
+	
         <div class="login_value">
             <%= submit_tag "Login" %>
         </div>

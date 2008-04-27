@@ -1,0 +1,645 @@
+# Logfile created on Tue Mar 04 16:14:28 -0500 2008/!\ FAILSAFE /!\  Tue Mar 04 16:14:40 -0500 2008
+  Status: 500 Internal Server Error
+  no such file to load -- openid
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /Users/patrice/Download Folder/ruby-openid-2.0.4/examples/rails_openid/app/controllers/login_controller.rb:4
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:203:in `load_without_new_constant_marking'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:203:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:202:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:94:in `require_or_load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:248:in `load_missing_constant'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:453:in `const_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:465:in `const_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/inflector.rb:257:in `constantize'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1423:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Tue Mar 04 16:17:17 -0500 2008
+  Status: 500 Internal Server Error
+  A secret is required to generate an integrity hash for cookie session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase of at least 30 characters" } in config/environment.rb
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/session/cookie_store.rb:88:in `ensure_secret_secure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/session/cookie_store.rb:57:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/cgi_ext/session.rb:39:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/cgi_process.rb:130:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/cgi_process.rb:130:in `session'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/cgi_process.rb:166:in `stale_session_check!'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/cgi_process.rb:114:in `session'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:1141:in `assign_shortcuts_without_flash'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/flash.rb:167:in `assign_shortcuts'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:518:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:19:31) [GET]
+  Session ID: 90014eb3357497092d7844796b09cb02
+  Parameters: {"action"=>"index", "controller"=>"login"}
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:19:31) [GET]
+  Session ID: 90014eb3357497092d7844796b09cb02
+  Parameters: {"action"=>"index", "controller"=>"login"}
+
+
+Mysql::Error (Access denied for user 'geobliki'@'localhost' (using password: YES)):
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `real_connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:21:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--ab3779f6114bcd960a6cccf45c08e39621510016
+  Parameters: {"action"=>"index", "controller"=>"login"}
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:21:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--ab3779f6114bcd960a6cccf45c08e39621510016
+  Parameters: {"action"=>"index", "controller"=>"login"}
+
+
+Mysql::Error (Access denied for user 'geobliki'@'localhost' (using password: YES)):
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `real_connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:21:15) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--ab3779f6114bcd960a6cccf45c08e39621510016
+  Parameters: {"action"=>"index", "controller"=>"login"}
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:21:15) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--ab3779f6114bcd960a6cccf45c08e39621510016
+  Parameters: {"action"=>"index", "controller"=>"login"}
+
+
+Mysql::Error (Access denied for user 'geobliki'@'localhost' (using password: YES)):
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `real_connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.1/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:22:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--ab3779f6114bcd960a6cccf45c08e39621510016
+  Parameters: {"action"=>"index", "controller"=>"login"}
+  [4;36;1mSQL (0.000239)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/server
+Rendering login/index
+Completed in 0.01488 (67 reqs/sec) | Rendering: 0.01008 (67%) | DB: 0.00024 (1%) | 200 OK [http://localhost/]
+
+
+Processing LoginController#submit (for 127.0.0.1 at 2008-03-04 16:28:29) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--ab3779f6114bcd960a6cccf45c08e39621510016
+  Parameters: {"username"=>"yahoo.com", "action"=>"submit", "controller"=>"login"}
+Redirected to http://localhost:3000/
+Completed in 0.01120 (89 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/login/submit]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-03-04 16:28:29) [GET]
+  Session ID: BAh7CDoNdXNlcm5hbWUiDnlhaG9vLmNvbSIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiZVlvdXIgT3Bl%0AbklEIFVSTCBpcyA8Yj5odHRwOi8vbG9jYWxob3N0OjMwMDAvdXNlci95YWhv%0Aby5jb208L2I%2BPGJyLz48YnIvPlByb2NlZWQgdG8gc3RlcCAyIGJlbG93LgY6%0ACkB1c2VkewY7B1Q6DmFwcHJvdmFsc1sA--fc588e9d4cec2ac1aec7c4626bf7378279c3276d
+  Parameters: {"action"=>"index", "controller"=>"login"}
+Rendering template within layouts/server
+Rendering login/index
+Completed in 0.00739 (135 reqs/sec) | Rendering: 0.00223 (30%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+ConsumerController: missing default helper path consumer_helper
+
+
+Processing ConsumerController#index (for 127.0.0.1 at 2008-03-04 16:29:09) [GET]
+  Session ID: BAh7CDoNdXNlcm5hbWUiDnlhaG9vLmNvbSIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoOYXBwcm92%0AYWxzWwA%3D--e539a89c8c369bf989f7147ffe164b00b555d0fc
+  Parameters: {"action"=>"index", "controller"=>"consumer"}
+Rendering consumer/index
+Completed in 0.01428 (70 reqs/sec) | Rendering: 0.00967 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/consumer]
+ConsumerController: missing default helper path consumer_helper
+
+
+Processing ConsumerController#start (for 127.0.0.1 at 2008-03-04 16:29:23) [GET]
+  Session ID: BAh7CDoNdXNlcm5hbWUiDnlhaG9vLmNvbSIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoOYXBwcm92%0AYWxzWwA%3D--e539a89c8c369bf989f7147ffe164b00b555d0fc
+  Parameters: {"action"=>"start", "controller"=>"consumer", "openid_identifier"=>"yahoo.com"}
+Redirected to https://open.login.yahooapis.com/openid/op/auth?openid.assoc_handle=uRq4z2B3umWTMwu4kmB9A4YeLYoxJ_mcIafGqMpVdqkjIOCYhtSChAt20Pv0idLDJkgN.DCdrKNm6LuBgk0fZz7CUpMLLX.PFxgUulNeVls1YPUcC_15jn6UC7r.CHSE&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.realm=http%3A%2F%2Flocalhost%3A3000%2Fconsumer&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fconsumer%2Fcomplete
+Completed in 1.64324 (0 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/consumer/start]
+ConsumerController: missing default helper path consumer_helper
+
+
+Processing ConsumerController#start (for 127.0.0.1 at 2008-03-04 16:31:55) [GET]
+  Session ID: BAh7CjoNdXNlcm5hbWUiDnlhaG9vLmNvbSIuT3BlbklEOjpDb25zdW1lcjo6%0AbGFzdF9yZXF1ZXN0ZWRfZW5kcG9pbnRvOiJPcGVuSUQ6Ok9wZW5JRFNlcnZp%0AY2VFbmRwb2ludAw6DkBsb2NhbF9pZDA6GEBkaXNwbGF5X2lkZW50aWZpZXIw%0AOg9AdHlwZV91cmlzWwciLGh0dHA6Ly9zcGVjcy5vcGVuaWQubmV0L2F1dGgv%0AMi4wL3NlcnZlciIwaHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvZXh0ZW5zaW9u%0Acy9wYXBlLzEuMDoQQHNlcnZlcl91cmwiNGh0dHBzOi8vb3Blbi5sb2dpbi55%0AYWhvb2FwaXMuY29tL29wZW5pZC9vcC9hdXRoOhBAdXNlZF95YWRpc1Q6EEBj%0AbGFpbWVkX2lkMDoSQGNhbm9uaWNhbF9pZDAiCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewAiPU9wZW5J%0ARDo6Q29uc3VtZXI6OkRpc2NvdmVyZWRTZXJ2aWNlczo6T3BlbklEOjpDb25z%0AdW1lcjo6bzopT3BlbklEOjpDb25zdW1lcjo6RGlzY292ZXJlZFNlcnZpY2Vz%0ACToSQHN0YXJ0aW5nX3VybCIOeWFob28uY29tOg9AeWFkaXNfdXJsIhpodHRw%0AOi8vd3d3LnlhaG9vLmNvbS86DUBjdXJyZW50QAg6DkBzZXJ2aWNlc1sAOg5h%0AcHByb3ZhbHNbAA%3D%3D--83652f4903a0ede7a886a1c175dba9f20fb67b00
+  Parameters: {"action"=>"start", "controller"=>"consumer", "openid_identifier"=>"https://me.yahoo.com/cappelaere"}
+Redirected to https://open.login.yahooapis.com/openid/op/auth?openid.assoc_handle=uRq4z2B3umWTMwu4kmB9A4YeLYoxJ_mcIafGqMpVdqkjIOCYhtSChAt20Pv0idLDJkgN.DCdrKNm6LuBgk0fZz7CUpMLLX.PFxgUulNeVls1YPUcC_15jn6UC7r.CHSE&openid.claimed_id=https%3A%2F%2Fme.yahoo.com%2Fcappelaere&openid.identity=https%3A%2F%2Fme.yahoo.com%2Fcappelaere&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.realm=http%3A%2F%2Flocalhost%3A3000%2Fconsumer&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fconsumer%2Fcomplete
+Completed in 0.83168 (1 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/consumer/start]
+ConsumerController: missing default helper path consumer_helper
+
+
+Processing ConsumerController#start (for 127.0.0.1 at 2008-03-04 16:32:17) [GET]
+  Session ID: BAh7CjoNdXNlcm5hbWUiDnlhaG9vLmNvbSIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ACIuT3BlbklE%0AOjpDb25zdW1lcjo6bGFzdF9yZXF1ZXN0ZWRfZW5kcG9pbnRvOiJPcGVuSUQ6%0AOk9wZW5JRFNlcnZpY2VFbmRwb2ludAw6DkBsb2NhbF9pZDA6GEBkaXNwbGF5%0AX2lkZW50aWZpZXIwOg9AdHlwZV91cmlzWwciLGh0dHA6Ly9zcGVjcy5vcGVu%0AaWQubmV0L2F1dGgvMi4wL3NpZ25vbiIwaHR0cDovL3NwZWNzLm9wZW5pZC5u%0AZXQvZXh0ZW5zaW9ucy9wYXBlLzEuMDoQQHNlcnZlcl91cmwiNGh0dHBzOi8v%0Ab3Blbi5sb2dpbi55YWhvb2FwaXMuY29tL29wZW5pZC9vcC9hdXRoOhBAdXNl%0AZF95YWRpc1Q6EEBjbGFpbWVkX2lkIiRodHRwczovL21lLnlhaG9vLmNvbS9j%0AYXBwZWxhZXJlOhJAY2Fub25pY2FsX2lkMDoOYXBwcm92YWxzWwAiPU9wZW5J%0ARDo6Q29uc3VtZXI6OkRpc2NvdmVyZWRTZXJ2aWNlczo6T3BlbklEOjpDb25z%0AdW1lcjo6bzopT3BlbklEOjpDb25zdW1lcjo6RGlzY292ZXJlZFNlcnZpY2Vz%0ACToSQHN0YXJ0aW5nX3VybCIkaHR0cHM6Ly9tZS55YWhvby5jb20vY2FwcGVs%0AYWVyZToPQHlhZGlzX3VybCIkaHR0cHM6Ly9tZS55YWhvby5jb20vY2FwcGVs%0AYWVyZToNQGN1cnJlbnRACzoOQHNlcnZpY2VzWwA%3D--a7341180c307f33cd7f4546627c19a51f2691035
+  Parameters: {"action"=>"start", "controller"=>"consumer", "use_sreg"=>"on", "openid_identifier"=>"yahoo.com", "immediate"=>"on"}
+Redirected to https://open.login.yahooapis.com/openid/op/auth?openid.assoc_handle=uRq4z2B3umWTMwu4kmB9A4YeLYoxJ_mcIafGqMpVdqkjIOCYhtSChAt20Pv0idLDJkgN.DCdrKNm6LuBgk0fZz7CUpMLLX.PFxgUulNeVls1YPUcC_15jn6UC7r.CHSE&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_immediate&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.sreg=http%3A%2F%2Fopenid.net%2Fextensions%2Fsreg%2F1.1&openid.realm=http%3A%2F%2Flocalhost%3A3000%2Fconsumer&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fconsumer%2Fcomplete%3Fdid_sreg%3Dy&openid.sreg.optional=dob%2Cfullname&openid.sreg.required=email%2Cnickname
+Completed in 1.39685 (0 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/consumer/start]
+  [4;35;1mSQL (0.000208)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-07 17:26:20) [GET]
+  Session ID: a8aaaff17925f10c421cf7a18bb1b084
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/examples/SAS/feeds/feed.xml" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1438:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1421:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-07 17:26:21) [GET]
+  Session ID: b64c4d5fa791c2e6eee920d5de88f353
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/examples/SAS/feeds/feed.xml" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1438:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1421:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-07 17:26:22) [GET]
+  Session ID: f2fdcf92261a2c8b36ea81f37f6d6741
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/feed/atom/2.xml" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1438:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1421:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-07 17:26:23) [GET]
+  Session ID: d02cc80e14ffb2ec704582697c2109eb
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/feed/atom/2.xml" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1438:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1421:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-07 17:28:59) [GET]
+  Session ID: c359ed13cb0d72efa39c33ba41401164
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/examples/SAS/feeds/feed.xml" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1438:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1421:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-03-07 18:52:34) [GET]
+  Session ID: 0af732631b6c47cd089daa9055f3b593
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/examples/SAS/feeds/feed.xml" with {:method=>:get}):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1438:in `recognize_path'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/routing.rb:1421:in `recognize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/rails.rb:73:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:551:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:550:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:636:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:625:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:956:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel.rb:955:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/lib/mongrel/command.rb:199:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-0.3.13.3/bin/mongrel_rails:235
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.1/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.1/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.1/lib/action_controller/templates/rescues/layout.erb (not_found)

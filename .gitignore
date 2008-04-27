@@ -1,0 +1,7 @@
+log/development.log
+log/openwferu_development.log
+vendor/openwfe.rb
+vendor/openwfe/*
+vendor/rufus/*
+work_development/*
+.DS_Store

@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
     def validate
 
-      errors.add_to_base("Missing password") if self.hashed_password.blank?
+      errors.add_to_base("Missing password") if self.hashed_password.blank? && self.identity_url == nil
     end
 
     def User.authenticate (name, password)

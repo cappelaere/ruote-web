@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "fields", :force => true do |t|
     t.string  "fkey",        :default => "", :null => false
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(:version => 6) do
     t.string "url",       :default => "", :null => false
   end
 
+  create_table "open_id_associations", :force => true do |t|
+    t.binary  "server_url"
+    t.string  "handle"
+    t.binary  "secret"
+    t.integer "issued"
+    t.integer "lifetime"
+    t.string  "assoc_type"
+  end
+
+  create_table "open_id_nonces", :force => true do |t|
+    t.string  "server_url", :default => "", :null => false
+    t.integer "timestamp",                  :null => false
+    t.string  "salt",       :default => "", :null => false
+  end
+
   create_table "store_permissions", :force => true do |t|
     t.string "storename",  :default => "", :null => false
     t.string "groupname",  :default => "", :null => false
@@ -45,6 +60,9 @@ ActiveRecord::Schema.define(:version => 6) do
     t.string  "hashed_password", :default => "",    :null => false
     t.string  "salt",            :default => "",    :null => false
     t.boolean "admin",           :default => false, :null => false
+    t.string  "identity_url"
+    t.string  "email"
+    t.string  "fullname"
   end
 
   create_table "wi_stores", :force => true do |t|
