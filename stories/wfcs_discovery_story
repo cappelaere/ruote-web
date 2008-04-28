@@ -1,0 +1,11 @@
+Story: Anonymous access
+	As an anonymous user
+	I want to discover the WfCS Collections and MetaData
+	So that I can see what is allowed and not see what is restricted
+	
+	Scenario: Discover the APP document link in headers of the home page
+		Given anonymous user
+		When user accesses '/'
+		Then service document link is in the headers
+		And service document link is valid
+		And collection links are valid

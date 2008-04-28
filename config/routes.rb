@@ -12,10 +12,12 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
   # map.connect '', :controller => "welcome"
+  WFCS_PREFIX = '/wfcs' #if !WFCS_PREFIX
   map.root :controller=>'home'
   map.login 'login', :controller => 'login', :action=>'index'
   map.open_id_complete 'login/open_id_complete', :controller => "login", :action => "open_id_complete"
-  map.app 'app.:format', :controller=>'app'
+  map.app "#{WFCS_PREFIX}/app.:format", :controller=>'app'
+  map.app "#{WFCS_PREFIX}/app", :controller=>'app', :format=>'atom'
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'

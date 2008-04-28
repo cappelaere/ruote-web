@@ -87,7 +87,6 @@ class LoginController < ApplicationController
   end
   
   def index
-
     session[:user] = nil
 
     if request.post?
@@ -98,7 +97,6 @@ class LoginController < ApplicationController
       end
     
       if @user
-
         @user.neutralize
           # removes password information.
           # Maybe it'd be better to just store the user id.

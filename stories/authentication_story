@@ -1,0 +1,60 @@
+Story: Anonymous access
+	As an anonymous user
+	I want to access the site
+	So that I can see what is allowed and not see what is restricted
+	
+	Scenario: Grant Access the Home Page	
+		Given anonymous user
+		When user accesses '/'
+		Then the status should be 200
+
+	Scenario: Fail Access to Launch Process Page
+		Given anonymous user
+		When user accesses '/launchp'
+		Then the status should be 302
+
+	Scenario: Fail Access to Store Page
+		Given anonymous user
+		When user accesses '/stores'
+		Then the status should be 302
+
+	Scenario: Fail Access to Engine Page
+		Given anonymous user
+		When user accesses '/engine'
+		Then the status should be 302
+
+	Scenario: Fail Access to Worklist Page
+		Given anonymous user
+		When user accesses '/worklist'
+		Then the status should be 302
+
+	Scenario: Fail Access to Processes Page
+		Given anonymous user
+		When user accesses '/processes'
+		Then the status should be 302
+		
+Story: Authorized User Access
+	As an authorized user
+	I want to access the site
+	So that I can see what is allowed and not see what is restricted to admin
+		
+	Scenario: Authorized Access the Launch Process Page	
+		Given an authorized user named: 'alice' and password: 'alice'
+		When authorized user accesses '/launchp'
+		Then the status should be 200
+
+	Scenario: Authorized Cannot Access the Admin Process Page	
+		Given an authorized user named: 'alice' and password: 'alice'
+		When authorized user accesses '/processes'
+		Then the status should be 302
+
+Story: OpenID User Access
+	As a user with an openid
+	I want to access the site
+	So that I can see what is allowed and not see what is restricted to admin
+		
+	Scenario: OpenID user login	
+		Given a user with openid: 'cappelaere.pip.verisign.net'
+		When authorized user accesses '/login'
+		Then the status should be 200
+		

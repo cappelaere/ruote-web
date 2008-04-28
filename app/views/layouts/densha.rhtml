@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<link rel='service' type='application/atomsvc+xml' href='/wfcs/app.xml' />
 
     <title>densha : <%= controller.controller_name %> : <%= controller.action_name %></title>
 
@@ -12,8 +13,6 @@
     <%= stylesheet_link_tag 'densha-dial' %>
     <%= stylesheet_link_tag 'densha-hash' %>
     <%= stylesheets %>
-
-    <link rel='alternate' type='application/atom+xml' title='Atom Activity Feed' href='/activity' />
 
 </head>
 
