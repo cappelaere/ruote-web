@@ -1,0 +1,70 @@
+<html>
+ <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example: Simple Map</title>
+    
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAr3Du0liZnXghIJ3YgK9mChRyBDfDSEgzt9ahIrIDAQLMzNAHwxTg7yspbUZj8WvEzH8wk0NzGixvEQ" 
+		type="text/javascript">
+    </script>
+    
+	<script type="text/javascript">
+		var target_marker;
+		var map;
+		var moveable = true;
+		
+	function do_not_move() {
+		moveable = false;
+	}
+	
+	// called from xhtml
+	function changeMarker ( latitude, longitude ) {
+	  target_point = new GLatLng(latitude, longitude)
+	  map.removeOverlay(target_marker);
+		
+	  target_marker = new GMarker(target_point);
+	  map.addOverlay(target_marker);
+	  map.panTo(target_point);
+	}
+	
+	function createMarker(point) {
+	  target_marker = new GMarker(point);
+	  map.addOverlay(target_marker);
+	  top.set_location(point.x, point.y);
+	}
+
+    function init() {
+ 				
+		if (GBrowserIsCompatible()) {
+		  	target_point = new GLatLng(37.4419, -122.1419)
+	
+	        map = new GMap2(document.getElementById("map_canvas"));
+	        map.setCenter(target_point, 2);
+
+	  
+		 	createMarker(target_point);		
+	
+			GEvent.addListener(map, "click", function(overlay,point) {
+			  if( !moveable ) {
+	  			return
+	  			}	
+	  		  map.removeOverlay(target_marker);
+			  createMarker(point);
+			});
+		
+			map.addControl(new GSmallMapControl());
+			map.addControl(new GMapTypeControl());	
+		    map.addControl(new GOverviewMapControl(null)); 
+			map.addOverlay(target_marker);	
+			
+	    } else {
+	    	alert ("not GBrowserCompatible");
+	    }
+	}  
+    </script>
+ </head>
+ 
+<body onload="init()" onunload="GUnload()">
+   <div id="map_canvas" style="width: 500px; height: 300px">
+   </div>
+ </body>
+</html>

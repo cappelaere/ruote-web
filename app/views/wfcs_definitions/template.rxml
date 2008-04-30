@@ -1,0 +1,9 @@
+xml.instruct!
+xml.entry 'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0'  do
+  xml.title @definition.name
+  xml.content "Default Post Template to instantiate workflow process"
+  xml.category "workflow"
+  xml.tag!("geobpms:command", "start now")
+  xml.tag!("geobpms:context_data")
+  xml.tag!("geobpms:result_data")
+end

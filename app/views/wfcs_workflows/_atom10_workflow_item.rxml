@@ -1,0 +1,41 @@
+xm.entry 'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
+  xm.title   item.title
+  xm.link    "href" => post_link(item), :type=>"text/html"
+  xm.link    "rel" => "alternate", "href"=>"#{atom_link(item)}.atom",:type=>"application/atom+xml"
+  xm.id  item_id(item) 
+  
+  xm.category :scheme=>"http://geobpms/1.0", :term=>"#{item.category}"
+  
+  updated = DateTime.parse(item.updated_at.to_s)
+  xm.updated updated.strftime("%Y-%m-%dT%H:%M:%SZ")
+  xm.author  { 
+    xm.name User.find(item.user_id).fullname 
+    xm.email User.find(item.user_id).email 
+    xm.uri User.find(item.user_id).identity_url
+  }
+ 
+           
+  xm.content :type=>"html" do
+    xm << "<![CDATA[<table>"
+    xm << "<tr><td>Title:</td><td>#{item.title}</td></tr>"
+    xm << "<tr><td>Description:</td><td>#{item.content}</td></tr>"
+    xm << "<tr><td>Category:</td><td>#{item.category}</td></tr>"
+    xm << "<tr><td>Id:</td><td>#{item.id}</td></tr>"
+    xm << "<tr><td>XForms:</td><td>#{xforms_link(item)}</td></tr>"
+    xm << "<tr><td>Post Template:</td><td>#{template_link(item)}</td></tr>"
+    xm << "<tr><td>Permission:</td><td>#{item.permission}</td></tr>"
+    xm << "<tr><td>Created At:</td><td>#{item.created_at.to_s}</td></tr>"
+    xm << "<tr><td>Updated At:</td><td>#{item.updated_at.to_s}</td></tr>"
+    xm << "<tr><td>Flow:</td><td>#{definition(item)}</td></tr>"
+    xm << "</table>]]>"        
+  end
+           
+  xm.tag!("geobpms:item_type", "workflows")
+  xm.tag!("geobpms:permission", item.permission)
+          
+  #xm.tag!("geobpms:definitions") do
+  #  for definition in item.definitions
+  #     render :partial => "atom10_definition_item", :locals => {:item => definition, :xm => xm}
+  #  end
+  #end
+end

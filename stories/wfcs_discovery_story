@@ -8,4 +8,5 @@ Story: Anonymous access
 		When user accesses '/'
 		Then service document link is in the headers
 		And service document link is valid
+		And content-type is proper
 		And collection links are valid

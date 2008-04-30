@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 12) do
+
+  create_table "definitions", :force => true do |t|
+    t.integer  "workflow_id"
+    t.integer  "user_id",                   :default => 1
+    t.string   "version",     :limit => 12
+    t.text     "xpdl"
+    t.text     "openwfe"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.string   "status",      :limit => 32, :default => "enabled"
+    t.string   "link"
+    t.string   "xform",                     :default => "",        :null => false
+  end
 
   create_table "fields", :force => true do |t|
     t.string  "fkey",        :default => "", :null => false
@@ -34,6 +47,14 @@ ActiveRecord::Schema.define(:version => 9) do
     t.string "url",       :default => "", :null => false
   end
 
+  create_table "oauth_grants", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "provider_id"
+    t.string   "realm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "open_id_associations", :force => true do |t|
     t.binary  "server_url"
     t.string  "handle"
@@ -47,6 +68,17 @@ ActiveRecord::Schema.define(:version => 9) do
     t.string  "server_url", :default => "", :null => false
     t.integer "timestamp",                  :null => false
     t.string  "salt",       :default => "", :null => false
+  end
+
+  create_table "providers", :force => true do |t|
+    t.string   "consumer_name"
+    t.string   "consumer_description"
+    t.string   "callback_url"
+    t.string   "consumer_key"
+    t.string   "consumer_secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "store_permissions", :force => true do |t|
@@ -65,10 +97,44 @@ ActiveRecord::Schema.define(:version => 9) do
     t.string  "fullname"
   end
 
+  create_table "wf_processes", :force => true do |t|
+    t.integer  "definition_id"
+    t.string   "title",         :limit => 64
+    t.string   "content"
+    t.string   "category"
+    t.text     "context_data"
+    t.text     "result_data"
+    t.text     "command"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "status",        :limit => 32
+    t.string   "wfid",          :limit => 32
+    t.integer  "user_id"
+    t.datetime "scheduled_at"
+  end
+
+  add_index "wf_processes", ["wfid"], :name => "wfid_index"
+  add_index "wf_processes", ["created_at"], :name => "created_at"
+  add_index "wf_processes", ["user_id"], :name => "user_id_index"
+
   create_table "wi_stores", :force => true do |t|
     t.string "name"
     t.string "regex"
   end
+
+  create_table "workflows", :force => true do |t|
+    t.string   "title",      :limit => 64
+    t.string   "content"
+    t.string   "category"
+    t.string   "permission"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.integer  "user_id"
+    t.integer  "published",  :limit => 10, :default => 0, :null => false
+  end
+
+  add_index "workflows", ["title"], :name => "index_workflows_on_title", :unique => true
+  add_index "workflows", ["published"], :name => "index_workflows_on_published"
 
   create_table "workitems", :force => true do |t|
     t.string   "fei"

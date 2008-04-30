@@ -12,12 +12,41 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
   # map.connect '', :controller => "welcome"
+  
   WFCS_PREFIX = '/wfcs' #if !WFCS_PREFIX
   map.root :controller=>'home'
   map.login 'login', :controller => 'login', :action=>'index'
   map.open_id_complete 'login/open_id_complete', :controller => "login", :action => "open_id_complete"
-  map.app "#{WFCS_PREFIX}/app.:format", :controller=>'app'
-  map.app "#{WFCS_PREFIX}/app", :controller=>'app', :format=>'atom'
+  map.app "#{WFCS_PREFIX}/app.:format", :controller=>'wfcs_app'
+  map.app "#{WFCS_PREFIX}/app", :controller=>'wfcs_app', :format=>'atom'
+
+  map.resources :workflows, :controller=>'wfcs_workflows',     :active_scaffold => true, :path_prefix=>WFCS_PREFIX
+  map.resources :definitions, :controller=>'wfcs_definitions', :active_scaffold => true, :path_prefix=>WFCS_PREFIX
+  map.resources :processes, :controller=>'wfcs_processes',     :active_scaffold => true, :path_prefix=>WFCS_PREFIX
+
+  map.resources :workflows, :controller=>'wfcs_workflows', :path_prefix=>WFCS_PREFIX do |workflows|
+  	workflows.resources :definitions, :controller=>'wfcs_definitions', :name_prefix =>'workflow_' do |definitions|
+  		definitions.resources :processes, :controller=>'wfcs_processes', :name_prefix =>'definitions_'
+    end
+  end
+  
+  map.resources :workflows, :controller=>'wfcs_workflows', :path_prefix=>WFCS_PREFIX do |workflows|
+  	workflows.resources :processes, :controller=>'wfcs_processes', :name_prefix =>'workflow_'
+  end
+
+  map.resources :definitions, :controller=>'wfcs_definitions', :path_prefix=>WFCS_PREFIX
+  map.templates "#{WFCS_PREFIX}/definitions/:action/:id", :controller=>'wfcs_definitions'
+
+  map.connect '/wfcs/itemtypes/en_US/workflows', :controller=>'/wfcs_workflows', :action=>'index', :format=>'metadata'
+  map.connect '/wfcs/itemtypes/en_US/definitions', :controller=>'/wfcs_definitions', :action=>'index', :format=>'metadata'
+  map.connect '/wfcs/itemtypes/en_US/processes', :controller=>'/wfcs_processes', :action=>'index', :format=>'metadata'
+
+  map.resources :processes, :controller=>'wfcs_processes', :path_prefix=>WFCS_PREFIX do |processes|
+  	processes.resources :events, :name_prefix =>'process_'
+  end
+
+  map.resources :grants, :active_scaffold => true, :path_prefix=>WFCS_PREFIX
+  map.resources :providers, :active_scaffold => true, :path_prefix=>WFCS_PREFIX
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'

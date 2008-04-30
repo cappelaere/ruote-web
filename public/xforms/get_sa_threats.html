@@ -1,0 +1,107 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+    xml:lang="en">
+  
+  <head>
+    <title>South African Threats Workflow Form</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+    <script type="text/javascript" src="/xforms/formfaces.js" />
+
+    <form:model>
+      <form:instance>
+ 	    <data xmlns="">
+         <parameters>
+         <user><%= @current_user.id %></user>
+ 	       <workflow><%= @workflow.title %></workflow>
+         <entry>
+            <title>South African Fire Threats</title>
+            <content>Support of GEOSS Wild FIre Scenario</content>
+            <category>eo1,tasking</category>
+  
+	        <g:command>start now</g:command>
+            
+            <g:context_data>
+    	         <g:scenario>2</g:scenario>
+		         <g:all_threats>data/sa_all_threats.kml</g:all_threats>
+                 <g:final_threats>data/sa_final_threats.kml</g:final_threats>
+                 <g:feed_file>data/sa_feed_file.kml</g:feed_file>
+                 <g:send_to_draper>0</g:send_to_draper>
+	           </g:context_data>
+	         </entry>
+	       </parameters>
+	    </data>
+	  </form:instance>
+	 <form:submission id="getfeas" method="post" action="/wfcs/workflows/<%= @workflow.title %>/instances" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>South Africa Threats Workflow Form</h2>
+  
+  <table>
+     <tr><td>
+      <form:input ref="parameters/entry/title">
+      <form:label>Subject:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:textarea ref="parameters/entry/content"  >
+      <form:label>Comments:</form:label>
+      </form:textarea>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/category">
+      <form:label>Category:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:command">
+      <form:label>Command:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:cmd_options">
+      <form:label>Command Options:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:scenario">
+      <form:label>Scenario:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:all_threats">
+      <form:label>All Threats KML file name:</form:label>
+      </form:input>
+    </td></tr>  
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:final_threats">
+      <form:label>Final Threats KML file name:</form:label>
+      </form:input>
+    </td></tr> 
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:feed_file">
+      <form:label>Feed File name:</form:label>
+      </form:input>
+    </td></tr> 
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:send_to_draper">
+      <form:label>Send to Draper:</form:label>
+      </form:input>
+    </td></tr> 
+    
+	<tr><td>
+      <form:submit submission="getfeas"><form:label>Submit</form:label></form:submit>
+   </td></tr>
+   </table>
+			
+  </body>
+ </html>

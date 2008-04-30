@@ -1,0 +1,88 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+    xml:lang="en">
+  
+  <head>
+    <title>SPOT-5 Get Feasibility XForm</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+    <script type="text/javascript" src="/xforms/formfaces.js" />
+
+    <form:model>
+      <form:instance>
+ 	    <data xmlns="">
+           <parameters>
+ 	       <user><%= @current_user.id %></user>
+ 	       <workflow><%= @workflow.title %></workflow>
+             <entry>
+                <title>Get SPOT-5 Feasibilities</title>
+                <content>Getting SPOT-5 Feasibiltiies From XForms</content>
+                <category>feasibilities</category>
+                
+                <g:command>start now</g:command>
+               
+                <g:context_data>
+    	         <g:latitude>12.0</g:latitude>
+	             <g:longitude>24.2</g:longitude>
+	            </g:context_data>
+	          </entry>
+	       </parameters>
+	    </data>
+	  </form:instance>
+	 <form:submission id="getfeas" method="post" action="/wfcs/workflows/<%= @workflow.title %>/instances" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>SPOT-5 Get Feasibility Form</h2>
+  
+  <table>
+    <tr>
+      <form:input ref="parameters/entry/title">
+      <form:label>subject:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:textarea ref="parameters/entry/content"  >
+      <form:label>Comments:</form:label>
+      </form:textarea>
+    </tr>
+    <tr>
+      <form:input ref="parameters/entry/category">
+      <form:label>Category:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="parameters/entry/g:command">
+      <form:label>Command:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="parameters/entry/g:cmd_options">
+      <form:label>Command Options:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="parameters/entry/g:context_data/g:latitude">
+      <form:label>Lat:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="parameters/entry/g:context_data/g:longitude">
+      <form:label>Long:</form:label>
+      </form:input>
+    </tr>
+	<tr>
+      <form:submit submission="getfeas"><form:label>Get Feasibilities</form:label></form:submit>
+   </tr>
+   </table>
+			
+  </body>
+ </html>

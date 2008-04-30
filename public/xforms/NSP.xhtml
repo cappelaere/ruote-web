@@ -1,0 +1,128 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xml:lang="en">
+  
+  <head>
+    <title>NSP Form</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+ 
+    <form:model>
+      <form:instance>
+ 	    <data xmlns="">
+         <entry>
+            <title>Optimize NSP Tasking</title>
+            <content>EO1 NSP Tasking</content>
+            <category>eo1,NSP,tasking</category>
+  
+	        <g:command>start now</g:command>
+            <g:context_data>
+    	         <g:scenario>4</g:scenario>
+    	         <g:content>EO1 NSP Tasking</g:content>
+    	         <g:category>eo1,NSP,tasking</g:category>
+    	         
+    	         <g:send_to_draper>1</g:send_to_draper>
+    	         
+                 <g:targets>TA-01,TA-02,TA-03</g:targets>
+                 <g:locations>36.5,43.0 34.6667,43.5 33.0833,44.1667</g:locations>
+                 <g:weights>1,1,1</g:weights>
+                 <g:daynight>day</g:daynight>
+                 <g:max_days>3</g:max_days>
+	        </g:context_data>
+	        
+	        <g:result_data>
+                 <g:taskid type="int"></g:taskid>
+            </g:result_data>
+	      </entry>
+	    </data>
+	  </form:instance>
+     <form:submission id="getfeas" method="post" action="/wfcs/workflows/<%= @workflow.title %>/processes" />
+     <form:submission id="cancel" method="get" action="/launch" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>EO1 Tasking Form</h2>
+  
+  <table>
+     <tr>
+      <form:input ref="entry/title">
+      <form:label>Title:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:textarea ref="entry/content"  >
+      <form:label>Content:</form:label>
+      </form:textarea>
+    </tr>
+    <tr>
+      <form:input ref="entry/category">
+      <form:label>Category:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:command">
+      <form:label>Command:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:scenario">
+      <form:label>Scenario:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:textarea ref="entry/g:context_data/g:targets">
+      <form:label>Targets:</form:label>
+      </form:textarea>
+    </tr>
+    <tr>
+      <form:textarea ref="entry/g:context_data/g:locations">
+      <form:label>Locations:</form:label>
+      </form:textarea>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:weights">
+      <form:label>Weights:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:send_to_draper">
+      <form:label>Send to Draper:</form:label>
+      </form:input>
+    </tr>
+
+     <tr>  
+      <form:select1 ref="entry/g:context_data/g:daynight" appearance="full">
+       <form:label>Day/Night</form:label>
+         <form:item>
+            <form:label>Day</form:label>
+            <form:value>day</form:value>
+            </form:item>
+            <form:item>
+            <form:label>Night</form:label>
+            <form:value>night</form:value>
+            </form:item>      
+        </form:select1>
+    </tr>
+     <tr>
+      <form:input ref="entry/g:context_data/g:max_days">
+      <form:label>Maximum Days:</form:label>
+      </form:input>
+    </tr>
+    
+    <tr>
+      <form:submit submission="getfeas"><form:label>Submit</form:label></form:submit>
+      <form:submit submission="cancel"><form:label>Cancel</form:label></form:submit>
+    </tr>
+   </table>
+			
+  </body>
+ </html>

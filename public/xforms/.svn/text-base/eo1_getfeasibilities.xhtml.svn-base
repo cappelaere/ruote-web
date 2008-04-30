@@ -1,0 +1,158 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:xforms="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+ 	xmlns:v="urn:schemas-microsoft-com:vml"
+    xml:lang="en">
+  
+  <head>
+    <title>Getting EO1 Feasibilities using Mozilla XForm</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+ 
+   	<script type="text/javascript">
+	   	function set_location(longitude, latitude) {
+	   		 var model = document.getElementById("my-model");
+	   		 var instance = model.getInstanceDocument("my-instance");
+	   		 
+	   		 // find latitude
+	   		 var latElement = instance.getElementsByTagName("latitude")[0];
+	   		 
+	   		 latElement.firstChild.nodeValue = latitude.toFixed(4)
+
+	   		 // find longitude
+	   		 var longElement = instance.getElementsByTagName("longitude")[0];
+	   		 
+	   		 longElement.firstChild.nodeValue = longitude.toFixed(4)
+	   		 
+	   		 //alert( dataElement.firstChild.nodeValue );
+	   		 model.rebuild();
+	   		 model.recalculate();
+	   		 model.refresh();
+	   	}
+	   	
+	   	function latlongchanged() {
+	   		var model = document.getElementById("my-model");
+	   		var instance = model.getInstanceDocument("my-instance");
+	   		var latElement = instance.getElementsByTagName("latitude")[0];
+	   		var latitude = latElement.firstChild.nodeValue
+	   		
+		    var longElement = instance.getElementsByTagName("longitude")[0];
+	   		var longitude = longElement.firstChild.nodeValue
+	   		
+	   		window.frames.map.changeMarker(latitude, longitude);
+	   	}	   	
+   	</script>
+ 
+    <xforms:model id='my-model' schema='/xforms/gmap.xsd'>
+      <xforms:instance id='my-instance'>
+           <data xmlns="">
+             <entry>
+                <title>Get EO1 Feasibilities</title>
+                <content>Getting Feasibilities From XForms</content>
+                <category>feasibilities</category>
+                
+                <g:command>start now</g:command>
+                <g:context_data>
+    	         <g:latitude type="float">12.0</g:latitude>
+	             <g:longitude type="float">-112.0</g:longitude>
+	             <g:daynight type="string" description="enumeration day|night">day</g:daynight>
+	            </g:context_data>
+	            <g:result_data>
+                    <g:feasibilities type="application/xml"></g:feasibilities>
+                </g:result_data>
+	          </entry>
+	       </data>
+	  </xforms:instance>
+ 
+      <xforms:submission id="getfeas" method="post" action="/wfcs/workflows/eo1_getfeasibilities/processes" />
+
+	  <xforms:bind nodeset="/data/entry/g:context_data/g:latitude"
+                 required="true()" type="gmap:latitudeType"/>
+	  <xforms:bind nodeset="/data/entry/g:context_data/g:longitude"
+                 required="true()" type="gmap:longitudeType"/>
+ 
+ 	</xforms:model>
+  </head>
+  
+  <body>
+  <div id="geobpms-logo">
+   <img src="/images/geobpms.jpg" width='70'/>
+  </div>
+  
+  <h2>Getting EO1 Feasibilities using Mozilla XForms</h2>
+  
+  <table>
+   	<tr>
+	  <td>
+  	    <iframe id="map" src="/xforms/gmap.html" type="text/html" width="516px" height="316px"></iframe>    
+	  </td>
+	</tr>
+  
+    <tr><td>
+      <xforms:input ref="entry/title">
+      <xforms:label>Title:</xforms:label>
+      </xforms:input>
+    </td></tr>
+    <tr><td>
+      <xforms:textarea ref="entry/content"  >
+      <xforms:label>Content:</xforms:label>
+      </xforms:textarea>
+    </td></tr>
+    <tr>
+      <xforms:input ref="entry/category">
+      <xforms:label>Category:</xforms:label>
+      </xforms:input>
+    </tr>
+    <tr>
+      <xforms:input ref="entry/g:command">
+      <xforms:label>Command:</xforms:label>
+      </xforms:input>
+    </tr>
+    
+    <tr>
+ 	      	<xforms:input id='latitude' ref="/data/entry/g:context_data/g:latitude" >
+	      		<xforms:label>Lat:</xforms:label>
+	      		<xforms:hint>Please enter the latitude correctly in decimal</xforms:hint>
+	      		<xforms:action ev:event="xforms-value-changed">
+	      			 <xforms:load resource="javascript:latlongchanged()" />
+	      		</xforms:action>
+	      		<xforms:alert>Invalid latitude: +-90.0 </xforms:alert>
+	      	</xforms:input>
+	
+    </tr>
+    <tr>
+ 	      	<xforms:input ref="/data/entry/g:context_data/g:longitude">
+	      		<xforms:label>Long:</xforms:label>
+	      		<xforms:hint>Please enter the longitude correctly in decimal</xforms:hint>
+	      		<xforms:action ev:event="xforms-value-changed">
+	      			 <xforms:load resource="javascript:latlongchanged()" />
+	      		</xforms:action>
+	      		<xforms:alert>Invalid longitude: +- 180.0 </xforms:alert>
+	      	</xforms:input>
+   </tr>
+    <tr>  
+      <xforms:select1 ref="entry/g:context_data/g:daynight" appearance="full">
+	   <xforms:label>Day/Night</xforms:label>
+		 <xforms:item>
+			<xforms:label>Day</xforms:label>
+			<xforms:value>day</xforms:value>
+			</xforms:item>
+			<xforms:item>
+			<xforms:label>Night</xforms:label>
+			<xforms:value>night</xforms:value>
+		    </xforms:item>		
+		</xforms:select1>
+	</tr>
+	<tr>
+      <xforms:submit submission="getfeas"><xforms:label>Get Feasibilities</xforms:label></xforms:submit>
+   </tr>
+   </table>
+			
+  </body>
+ </html>

@@ -1,0 +1,248 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xml:lang="en">
+  
+  <head>
+    <title>Theme-based Request XForm</title>
+	<meta name="gmapkey" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+ 
+    <link rel="stylesheet" type="text/css" href="/xforms/example.css"/>
+    
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAzr2EBOXUKnm_jVnk0OJI7xSosDVG8KKPE1-m51RBrvYughuyMxQ-i1QfUnH94QxWIa6N4U6MouMmBA"
+	            type="text/javascript"></script>
+
+ 	<script type="text/javascript">
+			
+	var init = function () {
+		var target_marker;
+		var map;
+		var latitude  = document.getElementById("latitude").firstChild.firstChild.innerHTML
+		var longitude = document.getElementById("longitude").firstChild.firstChild.innerHTML
+		
+		//alert( "latitude:"+latitude)
+		//latitude = 45
+		//longitude = -83
+		
+		if (GBrowserIsCompatible()) {
+		  	target_point = new GLatLng(latitude, longitude)
+	
+	        map = new GMap2(document.getElementById("map_canvas"));
+	        map.setCenter(target_point, 2);
+
+			function createMarker(point) {
+			  target_marker = new GMarker(point);
+			  map.addOverlay(target_marker);
+			  //document.getElementById("message").innerHTML = "current target at "+ point;
+			  document.getElementById("ff-2").value = point.x;
+			  document.getElementById("ff-1").value = point.y;
+			}
+	  
+		 	createMarker(target_point);		
+		
+			map.addControl(new GSmallMapControl());
+			map.addControl(new GMapTypeControl());	
+		    map.addControl(new GOverviewMapControl(null)); 
+			map.addOverlay(target_marker);	
+	    } else {
+	    	alert ("not GBrowserCompatible");
+	    }
+	}  
+	</script>
+    
+    <script type="text/javascript" src="/xforms/formfaces.js" />
+    
+    <form:model>
+      <form:instance>
+      	<data xmlns=""> 	    
+	         
+	         <workitem>
+ 	         <%= @workitem_str %>
+ 	         </workitem>
+ 	         
+ 	         <entry>
+ 	         	<g:command>proceed</g:command>
+ 	         </entry>
+             
+             <results>
+    	         <latitude></latitude>
+	             <longitude></longitude>
+	             <daynight>day</daynight>
+	             <theme>fire</theme>
+	             <doy></doy>
+                 <path></path>
+                 <row></row>
+                 <date></date>
+                 <instrument>hyperion</instrument>
+                 <classifier>thermal</classifier>
+                 <priority>medium</priority>
+                 <cost></cost>
+                 <comments></comments>
+	          </results>
+		</data>
+	  </form:instance>
+     
+      <form:load resource="javascript:init()" ev:event="xforms-ready"/>
+ 
+	 <form:submission id="getTheme" method="post" action="/test/index" />
+	 <form:submission id="cancel" method="put" action="/wfcs/processes/<%= @pid %>" />
+	 
+	</form:model>
+	
+  </head>
+  
+  <body>
+  <h2>Select Feasibility</h2>
+  			
+    <form:repeat nodeset="workitem">
+      <table border="0">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>UTC Time</th>
+            <th>SZA</th>
+            <th>Pointing</th>
+            <th>Cost</th>
+            <th>Feasibility</th>
+          </tr>
+        </thead>
+        <tbody form:repeat-nodeset="//sps:Feasibility" id='r2'>
+          <tr>
+            <td><form:output ref="DOY" /> </td>
+            <td width='200'><form:output ref='UTC' /> </td>
+            <td width='80' align='center'><form:output ref='SZA' /> </td>
+            <td width='80'><form:output ref='TYPE' /> </td>
+            <td><form:output ref='COST' /> </td>
+            <td>
+              <form:trigger>
+                <form:label>Select</form:label>
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/doy" value="//sps:Feasibility[index('r2')]/DOY" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/path" value="//sps:Feasibility[index('r2')]/PATH" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/row" value="//sps:Feasibility[index('r2')]/ROW" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/date" value="//sps:Feasibility[index('r2')]/UTC" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/cost" value="//sps:Feasibility[index('r2')]/COST" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/latitude" value="/data/workitem/attributes/latitude" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/results/longitude" value="/data/workitem/attributes/longitude" />
+              </form:trigger>
+            </td>
+          </tr>
+		</tbody>
+	   </table>
+	</form:repeat>
+	    			
+       <hr/>
+       <h2>Selected Feasibility:</h2>
+       
+       <table>
+       <tr><td>
+	       <tr><td><b>Satellite:</b></td><td>EO1</td></tr>
+	       <tr><td><b>Latitude:</b></td><td id='latitude'><form:output ref='/data/workitem/attributes/latitude' /></td></tr>
+	       <tr><td><b>Longitude:</b></td><td id='longitude'><form:output ref='/data/workitem/attributes/longitude' /></td></tr>
+	       <tr><td><b>Day/Night:</b></td><td><form:output ref='/data/workitem/attributes/daynight' /></td></tr>
+	       <tr><td><b>Themes:</b></td><td><form:output ref='/data/workitem/attributes/theme' /></td></tr>
+	       <tr><td><b>Day of Year:</b></td><td><form:output ref='/data/results/doy' /></td></tr>
+	       <tr><td><b>Path:</b></td><td><form:output ref='/data/results/path' /></td></tr>
+	       <tr><td><b>Row:</b></td><td><form:output ref='/data/results/row' /></td></tr>
+	       <tr><td><b>Date:</b></td><td width='200'><form:output ref='/data/results/date' /></td></tr>
+	       <tr><td><b>Cost:</b></td><td><form:output ref='/data/results/cost' /></td></tr>
+	       <tr><td><b>Command:</b></td><td><form:output ref='/data/entry/g:command' /></td></tr>
+       </td>
+         <td>
+           <div id="map_canvas" style="width: 500px; height: 300px"></div>
+         </td>
+       </tr>
+       </table>
+ 
+       <hr/>
+       <h2>Select:</h2>
+       
+       <table>
+       <tr><td></td>
+        <td>
+        <form:select1 ref="/data/results/instrument">
+           <form:label>Instrument</form:label>
+        
+		 <form:item>
+			<form:label>hyperion</form:label>
+			<form:value>hyperion</form:value>
+			</form:item>
+			
+			<form:item>
+			<form:label>ali</form:label>
+			<form:value>ali</form:value>
+		 </form:item>
+		 		
+		</form:select1></td></tr>
+		
+		<tr><td></td>
+        <td>
+        <form:select1 ref="/data/results/classifier">
+           <form:label>classifier</form:label>
+		    <form:item>
+			<form:label>thermal</form:label>
+			<form:value>thermal</form:value>
+			</form:item>
+		</form:select1>
+		</td></tr>
+		
+	   
+	   <tr><td></td>
+        <td>
+        <form:select1 ref="/data/results/priority">
+          <form:label>Priority</form:label>
+ 		 <form:item>
+			<form:label>medium</form:label>
+			<form:value>medium</form:value>
+		 </form:item>
+		 <form:item>
+			<form:label>high</form:label>
+			<form:value>high</form:value>
+		 </form:item>	
+		 <form:item>
+			<form:label>vip</form:label>
+			<form:value>vip</form:value>
+		 </form:item>		
+		</form:select1></td></tr>
+       
+       <tr><td></td>
+        <td>
+        <form:textarea ref='/data/results/comments'>
+            <form:label>Comments:</form:label>
+        </form:textarea>
+        </td>
+        </tr>
+       </table>
+	  
+      <form:switch>
+         <form:case id="submit">
+          <form:trigger>
+            <form:label>Submit Task Request</form:label>
+            <form:action ev:event="DOMActivate">
+                <form:toggle case="confirm"/>
+             </form:action>
+           </form:trigger>      
+          
+           <form:submit submission="cancel">
+             <form:setvalue ev:event="DOMActivate" ref="entry/g:command">kill</form:setvalue>
+             <form:label>Cancel Task Request?</form:label>
+           </form:submit>
+           
+         </form:case>
+         
+         <form:case id="confirm">
+           <form:submit submission="getTheme">
+             <form:label>Confirm Submit Request?</form:label>
+           </form:submit>
+         </form:case>
+       </form:switch>
+       
+  </body>
+ </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xml:lang="en">
+  
+  <head>
+    <title>EO1 Tasking XForm</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+    <script type="text/javascript" src="/xforms/formfaces.js" />
+
+    <form:model>
+      <form:instance>
+ 	    <data xmlns="">
+           <%= @id %>
+           <%= @workitem %>
+           <parameters>
+	         <latitude></latitude>
+	         <longitude></longitude>
+	         <daynight>day</daynight>
+	       </parameters>
+	    </data>
+	  </form:instance>
+	 <form:submission id="getfeas" method="post" action="/xforms/forward" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>EO1 Tasking Form</h2>
+  
+  <table>
+    <tr>
+      <form:input ref="parameters/latitude">
+      <form:label>Lat:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="parameters/longitude">
+      <form:label>Long:</form:label>
+      </form:input>
+    </tr>
+    <tr>  
+      <form:select ref="parameters/daynight">
+	   <form:label>Day/Night</form:label>
+		 <form:item>
+			<form:label>Day</form:label>
+			<form:value>day</form:value>
+			</form:item>
+			<form:item>
+			<form:label>Night</form:label>
+			<form:value>night</form:value>
+		    </form:item>		
+		</form:select>
+	</tr>
+	<tr>
+      <form:submit submission="getfeas"><form:label>Get Feasibilities</form:label></form:submit>
+   </tr>
+   </table>
+			
+  </body>
+ </html>

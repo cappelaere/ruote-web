@@ -1,0 +1,159 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xml:lang="en">
+  
+  <head>
+    <title>EO1 Tasking Form</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+ 
+    <form:model>
+      <form:instance>
+ 	    <data xmlns="">
+         <entry>
+            <title>Submit EO1 Tasking</title>
+            <content>EO1 Tasking</content>
+            <category>eo1,tasking</category>
+  
+	        <g:command>start now</g:command>
+            <g:context_data>
+    	         <g:path>170</g:path>
+	   	         <g:row>35</g:row>
+	   	         <g:latitude>36.5</g:latitude>
+	             <g:longitude>43</g:longitude>
+	             <g:priority>medium</g:priority>
+		         <g:date>2008-04-07T07:26:00Z</g:date>
+		         <g:instrument>hyperion</g:instrument>
+		         <g:classifier>thermal</g:classifier>
+		         <g:cost></g:cost>
+		         <g:comments>NSP Task 01</g:comments>
+	           </g:context_data>
+	           <g:result_data>
+                 <g:taskid type="int"></g:taskid>
+               </g:result_data>
+	         </entry>
+	    </data>
+	  </form:instance>
+     <form:submission id="getfeas" method="post" action="/wfcs/workflows/<%= @workflow.title %>/processes" />
+     <form:submission id="cancel" method="get" action="/launch" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>EO1 Tasking Form</h2>
+  
+  <table>
+     <tr>
+      <form:input ref="entry/title">
+      <form:label>Title:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:textarea ref="entry/content"  >
+      <form:label>Content:</form:label>
+      </form:textarea>
+    </tr>
+    <tr>
+      <form:input ref="entry/category">
+      <form:label>Category:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:command">
+      <form:label>Command:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:path">
+      <form:label>Path:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:row">
+      <form:label>Row:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:latitude">
+      <form:label>Lat:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+      <form:input ref="entry/g:context_data/g:longitude">
+      <form:label>Long:</form:label>
+      </form:input>
+    </tr>
+    <tr>
+     <form:select1 ref="entry/g:context_data/g:priority">
+	   <form:label>Priority:</form:label>
+			<form:item>
+				<form:label>Low</form:label>
+				<form:value>Low</form:value>
+			</form:item>
+			<form:item>
+				<form:label>Medium</form:label>
+				<form:value>medium</form:value>
+			</form:item>	
+			<form:item>
+				<form:label>High</form:label>
+				<form:value>high</form:value>
+			</form:item>		
+	  </form:select1>
+    </tr>   
+    <tr>
+      <form:input ref="entry/g:context_data/g:date">
+      <form:label>Date:</form:label>
+      </form:input>
+    </tr>  
+    <tr>
+      <form:select1 ref="entry/g:context_data/g:instrument">
+	    <form:label>Instrument:</form:label>
+		<form:item>
+		  <form:label>Ali</form:label>
+			<form:value>ali</form:value>
+		</form:item>
+		<form:item>
+		  <form:label>Hyperion</form:label>
+		  <form:value>hyperion</form:value>
+		</form:item>		
+	   </form:select1>
+    </tr> 
+    <tr>
+     <form:select1 ref="entry/g:context_data/g:classifier">
+	   <form:label>Onboard Classifier:</form:label>
+	       <form:item>
+			 <form:label>None</form:label>
+			 <form:value>none</form:value>
+		   </form:item>
+		   <form:item>
+	         <form:label>Thermal</form:label>
+		     <form:value>thermal</form:value>
+		  </form:item>		
+		</form:select1>
+    </tr> 
+    <tr>
+      <form:input ref="entry/g:context_data/g:cost">
+      <form:label>Cost:</form:label>
+      </form:input>
+    </tr> 
+    <tr>
+      <form:input ref="entry/g:context_data/g:comments">
+      <form:label>Comments:</form:label>
+      </form:input>
+    </tr> 
+	  <tr>
+      <form:submit submission="getfeas"><form:label>Submit</form:label></form:submit>
+      <form:submit submission="cancel"><form:label>Cancel</form:label></form:submit>
+   </tr>
+   </table>
+			
+  </body>
+ </html>

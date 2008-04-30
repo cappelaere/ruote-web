@@ -1,0 +1,60 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:v="urn:schemas-microsoft-com:vml"
+		xmlns:xforms="http://www.w3.org/2002/xforms" 
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    xmlns:ev="http://www.w3.org/2001/xml-events" 
+	    xmlns:sps="http://www.opengis.net/sps" 
+	    xmlns:g='http://geopbms/1.0'
+	    xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>GMU SensorML instantiation</title>
+ 
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css" />
+   
+    <xforms:model id='my-model' schema='/xforms/gmap.xsd'>
+      <xforms:instance id='my-instance'>
+        <data xmlns="">
+          <entry>
+          <title>Theme tasking request</title>
+          <content>Theme tasking request using MOZILLA XForms</content>
+          <category>fire, hot pixels</category>
+          <g:command>start now</g:command>    
+          <g:context_data>
+	        <g:offering_id>EO1H0410342004085110PY</g:offering_id>
+	      </g:context_data>
+	      </entry>
+	    </data>
+	  </xforms:instance>
+	       
+	 <xforms:submission id="getTheme" method="post" action="/wfcs/workflows/clear_water/processes" />
+	 <xforms:submission id="cancel" method="get" action="/launch" />
+	</xforms:model>
+  </head>
+  
+  <body>
+    <div id="geobpms-logo">
+      <img src="/images/geobpms.jpg" width='70'/>
+    </div>
+  
+    <h2>WVHTF SensorML Tasking using Mozilla XForms</h2>
+  			 
+    <table>
+   
+    <tr><td>
+      <xforms:input ref="/data/entry/g:context_data/g:offering_id">
+      <xforms:label>Offering:</xforms:label>
+      </xforms:input>
+    </td></tr>
+    
+	<tr>
+      <xforms:submit submission="getTheme"><xforms:label>Submit</xforms:label></xforms:submit>
+      <xforms:submit submission="cancel"><xforms:label>Cancel</xforms:label></xforms:submit>
+    </tr>
+   </table>
+  </body>
+ </html>

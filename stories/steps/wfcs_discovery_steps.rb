@@ -17,16 +17,18 @@ steps_for(:wfcs_discovery) do
 
 	  #make sure the page exists
     assert_equal 200, status
+    @content_type = response.content_type
 	end
 
-	Then("content-type is application/atomsvc+xml") do
+	Then("content-type is proper") do
     # make sure the content-type is proper
-    assert_equal 'application/atomsvc+xml', response.content_type  
+    assert_equal 'application/atomsvc+xml', @content_type  
   end  
 	
 	Then("collection links are valid") do
     doc = Hpricot(@service_document)
-    doc.search('//collection').each do |col|
+    @collections = doc.search('//collection')
+    @collections.each do |col|
       href = col.attributes['href']
       get href
       assert_equal 200, status

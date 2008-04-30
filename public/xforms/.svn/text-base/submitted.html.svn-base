@@ -1,0 +1,41 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xml:lang="en">
+  
+  <head>
+    <title>EO1 Task Submitted</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+    <script type="text/javascript" src="/xforms/formfaces.js" />
+
+    <form:model>
+      <form:instance id='inst1'>
+ 	    <data xmlns="">
+           <%= @id %>
+           <%= @workitem %>
+           <%= @attributes %>
+           <parameters>
+	       </parameters>
+	    </data>
+	  </form:instance>
+	  <form:submission id="feas" method="post" action="/xforms/forward" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>EO1 Task has been submitted </h2>
+   <h3>
+    TaskID: <form:output ref='//sps:taskID' />
+   </h3>
+    <h3>
+    Status: <form:output ref='//sps:status' />
+   </h3>
+     
+  </body>
+ </html>

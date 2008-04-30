@@ -1,0 +1,190 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:v="urn:schemas-microsoft-com:vml"
+		xmlns:xforms="http://www.w3.org/2002/xforms" 
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		
+	    xmlns:ev="http://www.w3.org/2001/xml-events" 
+	    xmlns:sps="http://www.opengis.net/sps" 
+	    xmlns:g='http://geopbms/1.0'
+	    xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example: Simple Map</title>
+ 
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+   
+   	<script type="text/javascript">
+	   	function set_location(longitude, latitude) {
+	   		 var model = document.getElementById("my-model");
+	   		 var instance = model.getInstanceDocument("my-instance");
+	   		 
+	   		 // find latitude
+	   		 var latElement = instance.getElementsByTagName("latitude")[0];
+	   		 
+	   		 latElement.firstChild.nodeValue = latitude
+
+	   		 // find longtitude
+	   		 var longElement = instance.getElementsByTagName("longitude")[0];
+	   		 
+	   		 longElement.firstChild.nodeValue = longitude
+	   		 
+	   		 //alert( dataElement.firstChild.nodeValue );
+	   		 model.rebuild();
+	   		 model.recalculate();
+	   		 model.refresh();
+	   	}
+	   	
+	   	function latlongchanged() {
+	   		var model = document.getElementById("my-model");
+	   		var instance = model.getInstanceDocument("my-instance");
+	   		var latElement = instance.getElementsByTagName("latitude")[0];
+	   		var latitude = latElement.firstChild.nodeValue
+	   		
+		    var longElement = instance.getElementsByTagName("longitude")[0];
+	   		var longitude = longElement.firstChild.nodeValue
+	   		
+	   		window.frames.map.changeMarker(latitude, longitude);
+	   	}
+	   	
+   	</script>
+   
+    <xforms:model id='my-model' schema='/xforms/gmap.xsd'>
+      <xforms:instance id='my-instance'>
+        <data xmlns="">
+          <entry>
+          <title>Theme Selection Tasking Request</title>
+          <content>Theme tasking request using MOZILLA XForms</content>
+          <category>themes</category>
+          <g:command>start now</g:command>    
+          <g:context_data>
+    	    <g:latitude type="float">12.2</g:latitude>
+	        <g:longitude type="float">12.2</g:longitude>
+	        <g:daynight type="string" description="enumeration day|night">day</g:daynight>
+	        <g:theme type="string" description="comma-delimited themes">fire,flood</g:theme>
+	      </g:context_data>
+	      <g:result_data>
+	       <g:atom_feed_url type="application/atom+xml"></g:atom_feed_url>
+	      </g:result_data>
+	      </entry>
+	    </data>
+	  </xforms:instance>
+	       
+	 <xforms:submission id="getTheme" method="post" action="/wfcs/workflows/themes_select/processes" />
+	 <xforms:submission id="cancel" method="get" action="/launch" />
+
+	  <xforms:bind nodeset="/data/entry/g:context_data/g:latitude"
+                 required="true()" type="gmap:latitudeType"/>
+	  <xforms:bind nodeset="/data/entry/g:context_data/g:longitude"
+                 required="true()" type="gmap:longitudeType"/>
+
+	</xforms:model>
+  </head>
+  
+  <body>
+    <div id="geobpms-logo">
+      <img src="/images/geobpms.jpg" width='70'/>
+    </div>
+  
+    <h2>Theme-based Request using Mozilla XForms</h2>
+  			 
+    <table>
+    <tr>
+    <td>
+    	<table>
+	      <tr>
+	    	<td>
+  	   		  <iframe id="map" src="/xforms/gmap.html" type="text/html" width="516px" height="316px"></iframe>    
+	    	</td>
+	      </tr>
+
+	      <tr>
+	  		<td>
+	      	<xforms:input id='latitude' ref="/data/entry/g:context_data/g:latitude" >
+	      		<xforms:label>Lat:</xforms:label>
+	      		<xforms:hint>Please enter the latitude correctly in decimal</xforms:hint>
+	      		<xforms:action ev:event="xforms-value-changed">
+	      			 <xforms:load resource="javascript:latlongchanged()" />
+	      		</xforms:action>
+	      		<xforms:alert>Invalid latitude: +-90.0 </xforms:alert>
+	      	</xforms:input>
+	      	</td>
+	      </tr>
+	      <tr>
+	      	<xforms:input ref="/data/entry/g:context_data/g:longitude">
+	      		<xforms:label>Long:</xforms:label>
+	      		<xforms:hint>Please enter the longitude correctly in decimal</xforms:hint>
+	      		<xforms:action ev:event="xforms-value-changed">
+	      			 <xforms:load resource="javascript:latlongchanged()" />
+	      		</xforms:action>
+	      		<xforms:alert>Invalid longitude: +- 180.0 </xforms:alert>
+	      	</xforms:input>
+	      </tr>
+	      <tr>
+	      	<xforms:select1 ref="/data/entry/g:context_data/g:daynight" appearance="full" >
+		   		<xforms:label>Day/Night</xforms:label>
+			 	<xforms:item>
+					<xforms:label>Day</xforms:label>
+					<xforms:value>day</xforms:value>
+				</xforms:item>
+				<xforms:item>
+					<xforms:label>Night</xforms:label>
+					<xforms:value>night</xforms:value>
+			    </xforms:item>		
+			</xforms:select1>
+		  </tr>
+		</table>
+	</td>
+
+	<td>
+          <xforms:select appearance="full" ref="/data/entry/g:context_data/g:theme" id="selectManyFull" >
+            <xforms:label>Select Themes:</xforms:label>
+ 
+             <xforms:item>
+              <xforms:label> <img src="/images/icon_visible.jpg" width='30' />Visible</xforms:label>
+              <xforms:value>visible</xforms:value>
+            </xforms:item>
+            
+            <xforms:item>
+              <xforms:label> <img src="/images/icon_fire.jpg" width='30' />Fire</xforms:label>
+              <xforms:value>fire</xforms:value>
+            </xforms:item>
+            
+            <xforms:item>
+              <xforms:label><img src="/images/icon_flooding.jpg" width='30' />Flood</xforms:label>
+              <xforms:value>flood</xforms:value>
+            </xforms:item>
+            
+            <xforms:item>
+              <xforms:label><img src="/images/icon_air.jpg" width='30' />Smoke</xforms:label>
+              <xforms:value>smoke</xforms:value>
+            </xforms:item>
+            
+            <xforms:item>
+              <xforms:label><img src="/images/icon_volcano.jpg" width='30' />Volcano</xforms:label>
+              <xforms:value>volcano</xforms:value>
+            </xforms:item>
+            
+            <xforms:item>
+              <xforms:label><img src="/images/icon_oilspill.jpg" width='30' />Oil Spill</xforms:label>
+              <xforms:value>spill</xforms:value>
+            </xforms:item>
+            
+            <xforms:item>
+              <xforms:label><img src="/images/icon_tsunami.jpg" width='30' />Tsunami</xforms:label>
+              <xforms:value>tsunami</xforms:value>
+            </xforms:item>
+ 
+          </xforms:select>
+     </td>
+	</tr>
+	<tr>
+      <xforms:submit submission="getTheme"><xforms:label>Get Feasibilities</xforms:label></xforms:submit>
+      <xforms:submit submission="cancel"><xforms:label>Cancel</xforms:label></xforms:submit>
+    </tr>
+   </table>
+  </body>
+ </html>

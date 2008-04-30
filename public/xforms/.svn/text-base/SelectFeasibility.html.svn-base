@@ -1,0 +1,176 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xml:lang="en">
+  
+  <head>
+    <title>EO1 Tasking XForm</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+    <script type="text/javascript" src="/xforms/formfaces.js" />
+
+    <form:model>
+      <form:instance id='inst1'>
+ 	    <data xmlns="">
+           <%= @id %>
+           <%= @workitem %>
+           <%= @attributes %>
+           <parameters>
+            <doy></doy>
+            <path></path>
+            <row></row>
+            <date></date>
+            <instrument>hyperion</instrument>
+            <classifier>thermal</classifier>
+            <priority>medium</priority>
+            <cost></cost>
+            <comments></comments>
+	       </parameters>
+	    </data>
+	  </form:instance>
+	  <form:submission id="feas" method="post" action="/xforms/forward" />
+	  <form:submission id="cancel" method="post" action="/xforms/cancel" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>EO1 Feasibilities for: </h2>
+   
+     <form:repeat nodeset="parameters">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Day of the Year</th>
+            <th>UTC Time</th>
+            <th>SZA</th>
+            <th>Pointing Type</th>
+            <th>Cost</th>
+            <th>Feasibility</th>
+          </tr>
+        </thead>
+        <tbody form:repeat-nodeset="//sps:Feasibility" id='r2'>
+          <tr>
+            <td><form:output ref="DOY" /> </td>
+            <td><form:output ref='UTC' /> </td>
+            <td><form:output ref='SZA' /> </td>
+            <td><form:output ref='TYPE' /> </td>
+            <td><form:output ref='COST' /> </td>
+            <td>
+              <form:trigger>
+                <form:label>Select</form:label>
+                 <form:setvalue ev:event="DOMActivate" ref="/data/parameters/doy" value="//sps:Feasibility[index('r2')]/DOY" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/parameters/path" value="//sps:Feasibility[index('r2')]/PATH" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/parameters/row" value="//sps:Feasibility[index('r2')]/ROW" />
+                 <form:setvalue ev:event="DOMActivate" ref="/data/parameters/date" value="//sps:Feasibility[index('r2')]/UTC" />
+                <form:setvalue ev:event="DOMActivate" ref="/data/parameters/cost" value="//sps:Feasibility[index('r2')]/COST" />
+              </form:trigger>
+            </td>
+          </tr>
+		</tbody>
+	   </table>
+	   </form:repeat>
+       
+       <hr/>
+       <h2>Selected Feasibility:</h2>
+       
+       <table>
+       <tr><td><b>Satellite</b></td><td>EO1</td></tr>
+       <tr><td><b>Latitude</b></td><td><form:output ref='attributes/latitude' /></td></tr>
+       <tr><td><b>Longitude</b></td><td><form:output ref='attributes/longitude' /></td></tr>
+       <tr><td><b>Day/Night</b></td><td><form:output ref='attributes/daynight' /></td></tr>
+       <tr><td><b>Day of Year</b></td><td><form:output ref='parameters/doy' /></td></tr>
+       <tr><td><b>Path</b></td><td><form:output ref='parameters/path' /></td></tr>
+       <tr><td><b>Row</b></td><td><form:output ref='parameters/row' /></td></tr>
+       <tr><td><b>Date</b></td><td><form:output ref='parameters/date' /></td></tr>
+       
+       <tr><td><b>Instrument</b></td>
+        
+        <td>
+        <form:select ref="parameters/instrument">
+           <form:label>Instrument</form:label>
+        
+		 <form:item>
+			<form:label>hyperion</form:label>
+			<form:value>hyperion</form:value>
+			</form:item>
+			
+			<form:item>
+			<form:label>ali</form:label>
+			<form:value>ali</form:value>
+		 </form:item>
+		 		
+		</form:select></td></tr>
+		
+		<tr><td><b>classifier</b></td>
+        
+        <td>
+        <form:select ref="parameters/classifier">
+           <form:label>classifier</form:label>
+        
+		    <form:item>
+			<form:label>thermal</form:label>
+			<form:value>thermal</form:value>
+			</form:item>	
+		</form:select></td></tr>
+		
+	   
+	   <tr><td><b>Priority</b></td>
+        <td>
+        <form:select ref="parameters/priority">
+          <form:label>Priority</form:label>
+ 		 <form:item>
+			<form:label>medium</form:label>
+			<form:value>medium</form:value>
+		 </form:item>
+		 <form:item>
+			<form:label>high</form:label>
+			<form:value>high</form:value>
+		 </form:item>	
+		 <form:item>
+			<form:label>vip</form:label>
+			<form:value>vip</form:value>
+		 </form:item>		
+		</form:select></td></tr>
+       <tr><td><b>Cost</b></td><td><form:output ref='parameters/cost' /></td></tr>
+       
+       <tr><td><b>Comments</b></td>
+        <td>
+        <form:textarea ref='parameters/comments'>
+            <form:label>Comments:</form:label>
+        </form:textarea>
+        </td>
+        </tr>
+       </table>
+       
+       <!-- -->
+       <!-- Submit the Task Request with a double action to confirm -->
+       <!-- -->
+ 
+       <form:switch>
+         <form:case id="submit">
+          <form:trigger>
+            <form:label>Submit Task Request</form:label>
+            <form:action ev:event="DOMActivate">
+                <form:toggle case="confirm"/>
+             </form:action>
+           </form:trigger>      
+          
+           <form:submit submission="cancel">
+             <form:label>Cancel?</form:label>
+           </form:submit>
+           
+         </form:case>
+         
+         <form:case id="confirm">
+           <form:submit submission="feas">
+             <form:label>Confirm Submit?</form:label>
+           </form:submit>
+         </form:case>
+       </form:switch>
+  </body>
+ </html>

@@ -2321,3 +2321,108 @@ Densha::Engine 'engine' - stop() stopped service 'wfidGenerator' (OpenWFE::Kotob
 Densha::Engine 'engine' - stop() stopped service 'scheduler' (Rufus::Scheduler)
 Densha::Engine 'engine' - stop() stopped service 'expressionStorage.1' (OpenWFE::ThreadedYamlFileExpressionStorage)
 Densha::Engine 'engine' - stop() stopped engine 'engine'
+OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+Densha::Engine 'engine' - new() --- engine started --- 19552630
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^alpha$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^bravo$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::BlockParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^toto$'
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() initiating...
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() done. (took 0.475883483886719 ms)
+Densha::Engine 'engine' - stop() stopping engine 'engine'
+Densha::Engine 'engine' - stop() stopped service 'workQueue' (OpenWFE::WorkQueue)
+Densha::Engine 'engine' - stop() stopped service 'activityFeedService' (OpenWFE::Extras::ActivityFeedService)
+Densha::Engine 'engine' - stop() stopped service 'participantMap' (Densha::ParticipantMap)
+Densha::Engine 'engine' - stop() stopped service 'expressionPool' (OpenWFE::ExpressionPool)
+Densha::Engine 'engine' - stop() stopped service 'errorJournal' (OpenWFE::YamlErrorJournal)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage' (OpenWFE::CacheExpressionStorage)
+Densha::Engine 'engine' - stop() stopped service 'wfidGenerator' (OpenWFE::KotobaWfidGenerator)
+Densha::Engine 'engine' - stop() stopped service 'scheduler' (Rufus::Scheduler)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage.1' (OpenWFE::ThreadedYamlFileExpressionStorage)
+Densha::Engine 'engine' - stop() stopped engine 'engine'
+OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+Densha::Engine 'engine' - new() --- engine started --- 19552630
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^alpha$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^bravo$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::BlockParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^toto$'
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() initiating...
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() done. (took 0.478982925415039 ms)
+Densha::Engine 'engine' - stop() stopping engine 'engine'
+Densha::Engine 'engine' - stop() stopped service 'workQueue' (OpenWFE::WorkQueue)
+Densha::Engine 'engine' - stop() stopped service 'activityFeedService' (OpenWFE::Extras::ActivityFeedService)
+Densha::Engine 'engine' - stop() stopped service 'participantMap' (Densha::ParticipantMap)
+Densha::Engine 'engine' - stop() stopped service 'expressionPool' (OpenWFE::ExpressionPool)
+Densha::Engine 'engine' - stop() stopped service 'errorJournal' (OpenWFE::YamlErrorJournal)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage' (OpenWFE::CacheExpressionStorage)
+Densha::Engine 'engine' - stop() stopped service 'wfidGenerator' (OpenWFE::KotobaWfidGenerator)
+Densha::Engine 'engine' - stop() stopped service 'scheduler' (Rufus::Scheduler)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage.1' (OpenWFE::ThreadedYamlFileExpressionStorage)
+Densha::Engine 'engine' - stop() stopped engine 'engine'
+OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+Densha::Engine 'engine' - new() --- engine started --- 19552630
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^alpha$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^bravo$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::BlockParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^toto$'
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() initiating...
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() done. (took 0.581026077270508 ms)
+Densha::Engine 'engine' - stop() stopping engine 'engine'
+Densha::Engine 'engine' - stop() stopped service 'workQueue' (OpenWFE::WorkQueue)
+Densha::Engine 'engine' - stop() stopped service 'activityFeedService' (OpenWFE::Extras::ActivityFeedService)
+Densha::Engine 'engine' - stop() stopped service 'participantMap' (Densha::ParticipantMap)
+Densha::Engine 'engine' - stop() stopped service 'expressionPool' (OpenWFE::ExpressionPool)
+Densha::Engine 'engine' - stop() stopped service 'errorJournal' (OpenWFE::YamlErrorJournal)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage' (OpenWFE::CacheExpressionStorage)
+Densha::Engine 'engine' - stop() stopped service 'wfidGenerator' (OpenWFE::KotobaWfidGenerator)
+Densha::Engine 'engine' - stop() stopped service 'scheduler' (Rufus::Scheduler)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage.1' (OpenWFE::ThreadedYamlFileExpressionStorage)
+Densha::Engine 'engine' - stop() stopped engine 'engine'
+OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+Densha::Engine 'engine' - new() --- engine started --- 19552630
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^alpha$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^bravo$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::BlockParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^toto$'
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() initiating...
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() done. (took 0.635147094726562 ms)
+Densha::Engine 'engine' - stop() stopping engine 'engine'
+Densha::Engine 'engine' - stop() stopped service 'workQueue' (OpenWFE::WorkQueue)
+Densha::Engine 'engine' - stop() stopped service 'activityFeedService' (OpenWFE::Extras::ActivityFeedService)
+Densha::Engine 'engine' - stop() stopped service 'participantMap' (Densha::ParticipantMap)
+Densha::Engine 'engine' - stop() stopped service 'expressionPool' (OpenWFE::ExpressionPool)
+Densha::Engine 'engine' - stop() stopped service 'errorJournal' (OpenWFE::YamlErrorJournal)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage' (OpenWFE::CacheExpressionStorage)
+Densha::Engine 'engine' - stop() stopped service 'wfidGenerator' (OpenWFE::KotobaWfidGenerator)
+Densha::Engine 'engine' - stop() stopped service 'scheduler' (Rufus::Scheduler)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage.1' (OpenWFE::ThreadedYamlFileExpressionStorage)
+Densha::Engine 'engine' - stop() stopped engine 'engine'
+OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+Densha::Engine 'engine' - new() --- engine started --- 19552630
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^alpha$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::Extras::ActiveStoreParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^bravo$'
+Densha::ParticipantMap 'participantMap' - register_participant() participant class is OpenWFE::BlockParticipant
+Densha::ParticipantMap 'participantMap' - register_participant() '^toto$'
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() initiating...
+OpenWFE::ExpressionPool 'expressionPool' - reschedule() done. (took 0.468969345092773 ms)
+Densha::Engine 'engine' - stop() stopping engine 'engine'
+Densha::Engine 'engine' - stop() stopped service 'workQueue' (OpenWFE::WorkQueue)
+Densha::Engine 'engine' - stop() stopped service 'activityFeedService' (OpenWFE::Extras::ActivityFeedService)
+Densha::Engine 'engine' - stop() stopped service 'participantMap' (Densha::ParticipantMap)
+Densha::Engine 'engine' - stop() stopped service 'expressionPool' (OpenWFE::ExpressionPool)
+Densha::Engine 'engine' - stop() stopped service 'errorJournal' (OpenWFE::YamlErrorJournal)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage' (OpenWFE::CacheExpressionStorage)
+Densha::Engine 'engine' - stop() stopped service 'wfidGenerator' (OpenWFE::KotobaWfidGenerator)
+Densha::Engine 'engine' - stop() stopped service 'scheduler' (Rufus::Scheduler)
+Densha::Engine 'engine' - stop() stopped service 'expressionStorage.1' (OpenWFE::ThreadedYamlFileExpressionStorage)
+Densha::Engine 'engine' - stop() stopped engine 'engine'

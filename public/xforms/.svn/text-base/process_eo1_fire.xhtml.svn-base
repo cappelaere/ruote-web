@@ -1,0 +1,82 @@
+<!DOCTYPE
+  html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:form="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events" 
+    xmlns:sps="http://www.opengis.net/sps" 
+    xmlns:g='http://geopbms/1.0'
+    xml:lang="en">
+  
+  <head>
+    <title>Process EO-1 Workflow For Fire Form</title>
+
+    <link rel="stylesheet" type="text/css" href="/xforms/xforms.css"/>
+
+    <form:model>
+      <form:instance>
+ 	    <data xmlns="">
+         <parameters>
+         <user><%= @current_user.id %></user>
+ 	       <workflow><%= @workflow.title %></workflow>
+         <entry>
+            <title>Process EO-1 for Fire</title>
+            <content>EO-1 Processing</content>
+            <category>eo1,fire</category>
+  
+	        <g:command>start now</g:command>
+            
+            <g:context_data>
+    	         <g:taskid>72</g:taskid>
+	   	         <g:bands>110,150,210,213</g:bands>
+	           </g:context_data>
+	         </entry>
+	       </parameters>
+	    </data>
+	  </form:instance>
+	 <form:submission id="submit" method="post" action="/wfcs/workflows/process_eo1_fire/instances" />
+	</form:model>
+  </head>
+  
+  <body>
+  <h2>Process EO1 Dta For Fire Form</h2>
+  
+  <table>
+     <tr><td>
+      <form:input ref="parameters/entry/title">
+      <form:label>Subject:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:textarea ref="parameters/entry/content"  >
+      <form:label>Comments:</form:label>
+      </form:textarea>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/category">
+      <form:label>Category:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:command">
+      <form:label>Command:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:taskid">
+      <form:label>taskID:</form:label>
+      </form:input>
+    </td></tr>
+    <tr><td>
+      <form:input ref="parameters/entry/g:context_data/g:bands">
+      <form:label>Bands:</form:label>
+      </form:input>
+    </td></tr>
+	<tr><td>
+      <form:submit submission="submit"><form:label>Submit</form:label></form:submit>
+   </td></tr>
+   </table>
+			
+  </body>
+ </html>

@@ -63,6 +63,8 @@ end
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register "application/x-mobile", :mobile
 
+Mime::Type.register "application/metadata+xml", :metadata
+
 # Include your application configuration below
 
 require 'config/openwferu_engine'

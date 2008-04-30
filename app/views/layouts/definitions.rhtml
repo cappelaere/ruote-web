@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Definitions: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+
+ <link rel="shortcut icon" href="/favicon.ico" >
+  <link rel="icon" href="/images/animated_favicon1.gif" type="image/gif" >
+  
+  <link rel="search"
+           type="application/opensearchdescription+xml" 
+           
+           href="/definition_search.xml"
+           title="Definition Search" />
+           
+<body>
+<%= javascript_include_tag :defaults %>
+<%= active_scaffold_includes %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+<div id="geobpms-logo">
+   <img src="/images/openwfe-logo.png" />
+</div>
+<%= yield  %>
+
+</body>
+</html>

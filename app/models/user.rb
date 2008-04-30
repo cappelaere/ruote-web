@@ -47,6 +47,7 @@ require 'digest/sha1'
 # A Densha User.
 #
 class User < ActiveRecord::Base
+    has_many :provider_instances, :as => :user, :dependent => :destroy
 
     validates_presence_of :name
     validates_uniqueness_of :name

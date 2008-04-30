@@ -1,0 +1,42 @@
+xm.entry :xmlns => "http://www.w3.org/2005/Atom", 'xmlns:g' => 'http://geobpms.geobliki.com/1.0' do
+  xm.title   item.title
+  xm.link    "href" => "http://geobpms.geobliki.com/wfcs/processes/#{item.id}.atom"
+  xm.id      "http://geobpms.geobliki.com/wfcs/processes/#{item.id}"
+  xm.category :scheme=>"http://geobpms/1.0", :term=>"#{item.category}"
+  
+  created = DateTime.parse(item.created_at.to_s)
+  xm.created created.strftime("%Y-%m-%dT%H:%M:%SZ")
+  updated = DateTime.parse(item.updated_at.to_s)
+  xm.updated updated.strftime("%Y-%m-%dT%H:%M:%SZ")
+  xm.author  { xm.name item.login }
+  #xm.summary item.content
+           
+  xm.content :type=>"html" do
+    xm << "<![CDATA[<table>"
+    xm << "<table>"
+    xm << "<tr><td>Title:</td><td>#{item.title}</td></tr>"
+    xm << "<tr><td>Description:</td><td>#{item.content}</td></tr>"
+    xm << "<tr><td>Category:</td><td>#{item.category}</td></tr>"
+    xm << "<tr><td>Id:</td><td>#{item.id}</td></tr>"
+    xm << "<tr><td>Created_by:</td><td>#{User.find(item.user_id).name}</td></tr>"
+    xm << "<tr><td>Created At:</td><td>#{item.created_at.to_s}</td></tr>"
+    xm << "<tr><td>Updated At:</td><td>#{item.updated_at.to_s}</td></tr>"
+    xm << "</table>]]>"        
+  end
+           
+  xm.tag!("g:item_type", "processes")
+  
+  xm.tag!("g:context_data") do
+    xm << item.context_data if item.context_data
+  end
+  
+  xm.tag!("g:result_data") do
+    xm << item.result_data if item.result_data
+  end
+  
+  xm.tag!("g:definition_id", item.definition_id)
+  xm.tag!("g:command", item.command)
+  xm.tag!("g:status", item.status)
+  xm.tag!("g:wfid", item.wfid)
+          
+end

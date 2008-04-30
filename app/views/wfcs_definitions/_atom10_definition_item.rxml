@@ -1,0 +1,40 @@
+xm.entry  'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
+  xm.title   definition_entry_title(item)
+  xm.link    "rel" => "self", "href" => url_for(:only_path => false, :controller => "/definitions")+"/#{item.id}", :type=>"text/html"
+  xm.link    "rel" => "service.edit", "href" => url_for(:only_path => false, :controller => "/definitions")+"/#{item.id}.atom", :type=>"application/atom+xml"
+  xm.id      url_for(:only_path => false, :controller => "/definitions")+"/#{item.id}"
+
+  created = DateTime.parse(item.created_at.to_s)
+  xm.created created.strftime("%Y-%m-%dT%H:%M:%SZ")
+  updated = DateTime.parse(item.updated_at.to_s)
+  xm.updated updated.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+  xm.content :type=>"html" do
+    xm << "<![CDATA[<table>"
+    xm << "<tr><td>Version:</td><td>#{item.version}</td></tr>"
+    xm << "<tr><td>Status:</td><td>#{item.status}</td></tr>"
+    xm << "<tr><td>XForm:</td><td>#{xform(item)}</td></tr>"
+    xm << "<tr><td>Post Template:</td><td>#{template(item)}</td></tr>"
+    xm << "<tr><td>XPDL:</td><td>#{xpdl(item)}</td></tr>"
+    xm << "<tr><td>Flow:</td><td>#{flow(item)}</td></tr>"
+    xm << "<tr><td>OpenWFE:</td><td>#{openwfe(item)}</td></tr>"
+    xm << "</table>]]>" 
+  end
+
+  xm.tag!("geobpms:item_type", "definitions")
+  xm.tag!("geobpms:status",  item.status)
+  xm.tag!("geobpms:version", item.version)
+
+  xm.tag!("geobpms:xpdl") do
+    xm << xpdl(item)
+  end
+
+  xm.tag!("geobpms:openwfe") do
+    xm << openwfe(item)
+  end    
+
+  xm.tag!("geobpms:flow") do
+    xm << flow(item)
+  end    
+
+end

@@ -1,0 +1,110 @@
+@namespace xhtml url(http://www.w3.org/1999/xhtml);
+@namespace xforms url(http://www.w3.org/2002/xforms);
+
+body {
+  font: 10pt black "Tahoma", "Arial", "Helvetica", sans-serif;
+  color: black;
+}
+
+h1, h2, h3 {
+  color: #07A;
+}
+
+h2 {font-size: 14pt; background-color: rgb(200,230,200); width: 95%;}
+h3 {font-size: 12pt; background-color: rgb(230,200,230); width: 95%;}
+
+div { margin-bottom: 2px; }
+p { margin-bottom: 2px; }
+
+#status {
+  margin-top: 1in;
+  border-top: 1px solid #999;
+  padding-top: 1em;
+  color: #999;
+  font-size: xx-small;
+}
+
+.basictext {
+  font-size: 10pt; 
+  color: black;
+}
+
+.pagetitle {
+  font-size: 14pt; 
+  color: #0052A0;
+  font-weight: bold;
+}
+
+.colorRow {
+background: #C0E7F5;
+}
+
+/* CSS2 definitions */
+/*
+xforms|submit {margin-left: 65%; font-weight:900; background-color: gray; color: white;}
+xforms|submit::value { background-color: gray; color: white; margin-top: 6px;}
+xforms|submit .xf-value { background-color: gray; color: white; margin-top: 6px;}
+*/
+
+xforms|input {display: block; margin-top: 4px; margin-bottom: 4px;  width: 100%; background-color: rgb(210,230,230);}
+/*xforms|input value {width: 280px; background-color: white;} */
+xforms|input .xf-value, .input-value {width: 210px; background-color: white;}
+xforms|input xforms|label {width: 130px;  float: left; }
+
+xforms|select1 {display: block; width: 100%; margin-top: 4px; margin-bottom: 4px; background-color: rgb(210,230,230);}
+xforms|select1 value {width: 20%; font-size: 9pt;}
+xforms|select1 xforms|label {width: 130px}
+
+/*
+xforms|secret {display: block; width: 95%; margin-top: 4px; margin-bottom: 4px; background-color: rgb(210,230,230);}
+xforms|secret::value {width: 280px; background-color: white;}
+xforms|secret .xf-value, .secret-value {width: 48%; background-color: white;}
+xforms|secret xforms|label {width: 250px;  float: left; }
+*/
+
+xforms|select {display: block; width: 100%; margin-top: 4px; margin-bottom: 4px; background-color: rgb(210,230,230);}
+
+/*
+xforms|select::value {width: 42%; font-size: 9pt;}
+xforms|select .xf-value, .select-value {width: 35%; max-width: 280px; font-size: 9pt;}
+xforms|select xforms|label {width: 130px;  float: left; }
+*/
+
+xforms|range {display: block; width: 95%; margin-top: 4px; margin-bottom: 4px; background-color: rgb(210,230,230);}
+/* xforms|range::value {width: 280px;} */
+xforms|range .xf-value, .range-value {width: 48%;}
+xforms|range xforms|label {width: 250px;  float: left; }
+xforms|upload {display: block; width: 95%; margin-top: 4px; margin-bottom: 4px; background-color: rgb(210,230,230);}
+/* xforms|upload::value {width: 32%;} */
+xforms|upload .xf-value, .range-value {width: 32%;}
+xforms|upload xforms|label {width: 250px;  float: left; }
+
+
+
+xforms|textarea {display: block;  width: 100%; margin-top: 4px; margin-bottom: 4px; background-color: rgb(210,230,230);}
+xforms|textarea xforms|label {width: 130px;  float: left; }
+/* xforms|textarea::value {width: 280px; height: 140px;} */
+xforms|textarea .xf-value, .textarea-value  {width: 61%; height: 140px;}
+
+xforms|group {margin-top: 3px; background-color: rgb(230,180,180); font-weight:900; width: 95%;}
+xforms|case > xforms|label {font-size: 90%; font-weight: bold; background-color: rgb(200,230,200); width: 95%;}
+
+/* xforms|trigger::value {background-color: rgb(190,190,190);} */
+
+xforms|group > xforms|select {margin-left: 0px; font-size: 90%; font-weight: normal; background-color: rgb(210,210,210);}
+/* xforms|group > xforms|select::value {font-size: 90%; background-color: rgb(210,210,210);} */
+xforms|group > xforms|select .xf-value, xforms|group > .select-value {font-size: 90%; background-color: rgb(210,210,210);}
+xforms|group > xforms|select1 {margin-left: 0px; font-size: 90%; font-weight: normal; background-color: rgb(210,210,210);}
+/* xforms|group > xforms|select1::value {font-size: 90%; background-color: rgb(210,210,210);} */
+xforms|group > xforms|select1 .xf-value, xforms|group > .select1-value {font-size: 90%; background-color: rgb(210,210,210);}
+
+xforms|output {display: block; width: 95%;}
+xforms|output xforms|label {background-color: rgb(210,230,230); font-weight:900; width: 250px; float: left; margin-left: 0px; }
+/*xforms|output xforms|label::value {display: block;}*/
+xforms|output xforms|label .xf-value {display: block;}
+/* xforms|output::value {width: 95%;} */
+xforms|output .xf-value {width: 48%;}
+
+.repeat-item, .xf-repeat-item  { display: block; width: 100%;  border-top-color: gray; border-top-style: solid; border-top-width: 1px; border-bottom-color: gray; border-bottom-style: solid; border-bottom-width: 1px;}
+.repeat-index, .xf-repeat-index { background-color: lightblue; }
+.invalid { border-style: solid; border-width: 2px; border-color: red; }
