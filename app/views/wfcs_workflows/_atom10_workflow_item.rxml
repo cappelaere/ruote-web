@@ -1,4 +1,4 @@
-xm.entry 'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
+xm.entry 'xmlns:wfxml' => 'http://wfxml.wfmc.org' do
   xm.title   item.title
   xm.link    "href" => post_link(item), :type=>"text/html"
   xm.link    "rel" => "alternate", "href"=>"#{atom_link(item)}.atom",:type=>"application/atom+xml"
@@ -9,9 +9,10 @@ xm.entry 'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
   updated = DateTime.parse(item.updated_at.to_s)
   xm.updated updated.strftime("%Y-%m-%dT%H:%M:%SZ")
   xm.author  { 
-    xm.name User.find(item.user_id).fullname 
-    xm.email User.find(item.user_id).email 
-    xm.uri User.find(item.user_id).identity_url
+    user = User.find(item.user_id)
+    xm.name user.name 
+    xm.email user.email if user.email 
+    xm.uri user.identity_url if user.identity_url
   }
  
            
@@ -30,8 +31,8 @@ xm.entry 'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
     xm << "</table>]]>"        
   end
            
-  xm.tag!("geobpms:item_type", "workflows")
-  xm.tag!("geobpms:permission", item.permission)
+  xm.tag!("wfxml:item_type", "workflows")
+  xm.tag!("wfxml:permission", item.permission)
           
   #xm.tag!("geobpms:definitions") do
   #  for definition in item.definitions

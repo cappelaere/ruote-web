@@ -1,0 +1,13 @@
+Story: Oauth
+	As an user
+	I want to access the site from a client application
+	So that I can create/access/update/delete/start workflows, definitions
+	
+	Scenario: Authorized User CRUDs definitions
+		Given an authorized user named: 'alice' and password: 'alice'
+		When user registers client 'test'	
+		And user grants access to client 'test' realm '/wfcs/'	
+		Then the user can create a new definition
+		And the user can publish the definition
+		And the user can get the definition
+		And the user can delete the definition

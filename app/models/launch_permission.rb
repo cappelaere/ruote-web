@@ -38,7 +38,8 @@
 # 
 
 class LaunchPermission < ActiveRecord::Base
-
+  attr_accessor :description, :wfid
+  
   #
   # Returns the real_url, the one as seen from the rails application.
   #
@@ -79,6 +80,18 @@ class LaunchPermission < ActiveRecord::Base
       find_all_by_groupname(groupnames)
     end
 
+    # Add workflows in the database
+    Workflow.find(:all).each do |wf| 
+      if user.admin?
+        result << self.new( :wfid=> wf.id, :url=>wf.title, :groupname=>wf.permission, :description=>wf.content)
+      else
+        if groupnames.include? wf.permission
+          result << self.new( :wfid=> wf.id, :url=>wf.title, :groupname=>wf.permission, :description=>wf.content)
+        end
+      end
+    end
+    
+    
     result.sort_by { |lp| lp.url }
   end
 
@@ -119,7 +132,7 @@ class LaunchPermission < ActiveRecord::Base
   # or nil if there is none.
   #
   def get_description
-
+    return @description if @description
     pdef, prep = load_process_def
 
     OpenWFE::ExpressionTree.get_description prep

@@ -1,0 +1,9 @@
+Story: Anonymous access
+	As an anonymous user
+	I want to test the site
+	So that I can make sure it works
+	
+	Scenario: Test	
+		Given anonymous user
+		When user tries this
+		Then the status should be 200

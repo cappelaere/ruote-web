@@ -50,9 +50,13 @@ class DefinitionController < ApplicationController
   #
   def index
 
-    lp_id = params[:id]
+    lp_id   = params[:id]
     @defurl = params[:defurl]
-
+    wfid    = params[:wfid]
+    if wfid
+      return redirect_to :controller=>"wfcs/workflows", :id=>wfid
+    end
+  
     @lp = if lp_id 
       LaunchPermission.find_by_id lp_id
     else

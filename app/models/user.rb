@@ -47,8 +47,10 @@ require 'digest/sha1'
 # A Densha User.
 #
 class User < ActiveRecord::Base
-    has_many :provider_instances, :as => :user, :dependent => :destroy
-
+  # OAuth support
+  has_many :client_applications
+  has_many :tokens, :class_name=>"OauthToken",:order=>"authorized_at desc",:include=>[:client_application]
+  
     validates_presence_of :name
     validates_uniqueness_of :name
 

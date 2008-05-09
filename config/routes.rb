@@ -35,7 +35,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :definitions, :controller=>'wfcs_definitions', :path_prefix=>WFCS_PREFIX
-  map.templates "#{WFCS_PREFIX}/definitions/:action/:id", :controller=>'wfcs_definitions'
+  map.connect "#{WFCS_PREFIX}/definitions/:action/:id", :controller=>'wfcs_definitions'
 
   map.connect '/wfcs/itemtypes/en_US/workflows', :controller=>'/wfcs_workflows', :action=>'index', :format=>'metadata'
   map.connect '/wfcs/itemtypes/en_US/definitions', :controller=>'/wfcs_definitions', :action=>'index', :format=>'metadata'
@@ -44,10 +44,19 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :processes, :controller=>'wfcs_processes', :path_prefix=>WFCS_PREFIX do |processes|
   	processes.resources :events, :name_prefix =>'process_'
   end
+  map.connect "#{WFCS_PREFIX}/processes/:action/:id", :controller=>'wfcs_processes'
 
-  map.resources :grants, :active_scaffold => true, :path_prefix=>WFCS_PREFIX
-  map.resources :providers, :active_scaffold => true, :path_prefix=>WFCS_PREFIX
-
+  # oauth routes
+  map.resources :grants, :active_scaffold => true, :path_prefix=>'/oauth'
+  
+  map.oauth '/oauth',:controller=>'oauth',:action=>'index'
+  map.oauth '/oauth/:action',:controller=>'oauth'
+  
+  map.authorize '/oauth/authorize',:controller=>'oauth',:action=>'oauth_authorize'
+  map.request_token '/oauth/request_token',:controller=>'oauth',:action=>'request_token'
+  map.access_token '/oauth/access_token',:controller=>'oauth',:action=>'access_token'
+  map.test_request '/oauth/test_request',:controller=>'oauth',:action=>'test_request'
+  
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'
   #map.connect ':controller/service.wsdl', :action => 'wsdl'

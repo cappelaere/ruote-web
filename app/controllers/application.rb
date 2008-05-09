@@ -54,9 +54,18 @@ class ApplicationController < ActionController::Base
 
       redirect_to :back
     end
+    
+    # PGC for compatibility and convention reasons
+    def login_required
+      authorize
+    end
 
+    def current_user
+      session[:user]
+    end
+    
   private
-
+    
     def authorize
 
       u = session[:user]

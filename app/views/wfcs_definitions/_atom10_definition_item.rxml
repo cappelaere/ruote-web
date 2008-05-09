@@ -1,4 +1,4 @@
-xm.entry  'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
+xm.entry  'xmlns:wfxml' => 'http://wfxml.wfmc.org' do
   xm.title   definition_entry_title(item)
   xm.link    "rel" => "self", "href" => url_for(:only_path => false, :controller => "/definitions")+"/#{item.id}", :type=>"text/html"
   xm.link    "rel" => "service.edit", "href" => url_for(:only_path => false, :controller => "/definitions")+"/#{item.id}.atom", :type=>"application/atom+xml"
@@ -9,6 +9,13 @@ xm.entry  'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
   updated = DateTime.parse(item.updated_at.to_s)
   xm.updated updated.strftime("%Y-%m-%dT%H:%M:%SZ")
 
+  xm.author  { 
+    user = User.find(item.user_id)
+    xm.name user.name 
+    xm.email user.email if user.email 
+    xm.uri user.identity_url if user.identity_url
+  }
+  
   xm.content :type=>"html" do
     xm << "<![CDATA[<table>"
     xm << "<tr><td>Version:</td><td>#{item.version}</td></tr>"
@@ -21,19 +28,20 @@ xm.entry  'xmlns:geobpms' => 'http://geobpms.geobliki.com/1.0' do
     xm << "</table>]]>" 
   end
 
-  xm.tag!("geobpms:item_type", "definitions")
-  xm.tag!("geobpms:status",  item.status)
-  xm.tag!("geobpms:version", item.version)
+  xm.tag!("wfxml:item_type", "definitions")
+  xm.tag!("wfxml:version", item.version)
+  xm.tag!("wfxml:workflow_id", item.workflow_id)
+  xm.tag!("wfxml:status",  item.status)
 
-  xm.tag!("geobpms:xpdl") do
-    xm << xpdl(item)
+  xm.tag!("wfxml:xpdl") do
+    xm << item.xpdl
   end
 
-  xm.tag!("geobpms:openwfe") do
-    xm << openwfe(item)
+  xm.tag!("wfxml:openwfe") do
+    xm << item.openwfe
   end    
 
-  xm.tag!("geobpms:flow") do
+  xm.tag!("wfxml:flow") do
     xm << flow(item)
   end    
 

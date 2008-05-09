@@ -1,5 +1,26 @@
 module Wfcs
 
+  def authorized?
+    logger.info "**** Make sure this user is authorizing the workflow"
+    logger.info "**** #{current_client_application.realm}"
+    logger.info "**** #{current_client_application.user.id}"
+  end
+  
+  def launch_workflow(user, wfid)
+    wf = Workflow.find(wfid)
+
+    #make sure that the user may launch it
+    groupnames = Group.find_groups(user)
+    groupnames << ""
+    if groupnames.include?( wf.permission )
+      flash[:notice] = "launched process: #{wf.title}"      
+    else
+      flash[:notice] = "not authorized to launch : #{wf.title}"
+    end
+
+    logger.info "*******#{flash[:notice]}"
+  end
+  
   ##
   # WfXML Handler
   # 
@@ -21,6 +42,7 @@ module Wfcs
   # 
   def check_workflow_id( key )
     id = params[key]
+
     if id.to_i.to_s != id
       obj = Workflow.find_by_title(id)
       if obj
@@ -79,3 +101,4 @@ module Wfcs
     end
   end
 end
+

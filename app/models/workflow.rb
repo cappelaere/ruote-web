@@ -4,8 +4,15 @@ class Workflow < ActiveRecord::Base
   #  NotifyPubsub.workflow( record )
   #}
   
-  has_many :definitions
+  ##
+  # permalink the title
+  before_save { |record|
+    record.title =    record.title.downcase.tr("\"'", '').gsub(/\W/, ' ').strip.tr_s(' ', '-').tr(' ', '-').sub(/^$/, "-")
+  }
   
+  has_many :definitions
+
+   
   def login
     User.find(self.user_id).name
   end

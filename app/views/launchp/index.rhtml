@@ -24,10 +24,10 @@
         class="launchp_buttons"
     ><%= 
         link_to(
-            "launch", :action => "launch", :id => permission.id)
+            "launch", :action => "launch", :id => permission.id, :wfid=> permission.wfid)
     -%> | <%= 
         link_to(
-            "view", :controller => "definition", :id => permission.id)
+            "view", :controller => "definition", :id => permission.id, :wfid=> permission.wfid)
     -%></div>
     <div style="clear: both;"></div>
 </div>

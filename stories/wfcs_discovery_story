@@ -10,3 +10,30 @@ Story: Anonymous access
 		And service document link is valid
 		And content-type is proper
 		And collection links are valid
+
+	Scenario: Discover the metadata for all collections
+		Given anonymous user
+		When user accesses '/wfcs/workflows.metadata'
+		Then the status should be 200
+
+		Given anonymous user
+		When user accesses '/wfcs/definitions.metadata'
+		Then the status should be 200
+
+		Given anonymous user
+		When user accesses '/wfcs/processes.metadata'
+		Then the status should be 200
+
+		
+	Scenario: Discover the metadata for all collections using GData Syntax
+		Given anonymous user
+		When user accesses '/wfcs/itemtypes/en_US/workflows'
+		Then the status should be 200
+
+		Given anonymous user
+		When user accesses '/wfcs/itemtypes/en_US/processes'
+		Then the status should be 200
+
+		Given anonymous user
+		When user accesses '/wfcs/itemtypes/en_US/definitions'
+		Then the status should be 200

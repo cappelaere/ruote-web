@@ -6,15 +6,20 @@ class WfcsDefinitionsController < ApplicationController
 
   include Wfcs
   active_scaffold :definitions
+  
   layout 'definitions'
+  
+  before_filter :login_or_oauth_required, :only=>[:create, :edit, :update, :destroy]
 
   active_scaffold :definition do |config|
      config.label = "Workflow Definitions"
-     config.list.columns = [ :workflow, :version, :login , :created_at, :updated_at, :xpdl, :openwfe, :status, :flow, :xform]
+     config.list.columns = [ :workflow, :version, :login , :created_at, :updated_at, :xpdl, :openwfe, :status, :flow, :xform, :template]
      #list.columns.exclude :comments
      #list.sorting = {:updated_at => 'DESC'}
   end
    
+  ##
+  # Generic index
   def index
     @items = Definition.find(:all)
 
@@ -30,7 +35,74 @@ class WfcsDefinitionsController < ApplicationController
     end
   end
 
+  ##
+  # Create a new definition
+  def create
+    xml = params[:raw_post_data]
+    xml = params['RAW_POST_DATA']  if xml == nil
+    xml = request.env["RAW_POST_DATA"]  if xml == nil
+    user_id = session[:user].id
+    begin
+      @entry = REXML::Document.new( xml )
 
+      title   = @entry.root.elements["//title"] ? @entry.root.elements["//title"].text : "title"
+      content = @entry.root.elements["//content"] ? @entry.root.elements["//content"].text : ""
+      category= @entry.root.elements["//category"] ? @entry.root.elements["//category"].attributes["term"] : ""
+      permission = @entry.root.elements["//g:permission"] ? @entry.root.elements["//g:permission"].text : ""
+
+      type    = @entry.root.elements["//g:item_type"] ? @entry.root.elements["//g:item_type"].text : "workflows" 
+      if type  != "workflows"
+        raise "invalid collection name: #{type}, expecting 'workflows'"
+      end
+
+      wf = Workflow.new( :title=>title, :content=>content, :category=>category, :user_id=> user_id, 
+      :permission=>permission, :published => 0)
+
+      respond_to do |format|
+        if wf.save!
+          flash[:notice] = 'Workflow process was successfully created.'
+
+          format.atom { 
+            head :created, :location => workflow_url(wf)+".atom"
+          }
+
+          format.xml  { 
+            head :created, :location => workflow_url(wf)+".xml"
+          }
+
+          format.html { 
+            redirect_to workflow_url(wf)+".html"
+          }
+        end
+      end
+    rescue Exception => e
+      logger.debug "exception #{e}"
+    end
+  end
+  
+  ##
+  # show definition
+  def show
+    #check_workflow_id( :id )
+    begin
+      @record = Definition.find(params[:id])
+    rescue Exception=>e 
+      return redirect_to( :text=>"Invalid definition: #{params[:id]}", :status=>'500' )
+    end   
+    
+    respond_to do |format|
+      format.atom { 
+        render :action=>'atom_entry', :layout=>false
+      }
+      
+      format.xml { 
+        render :action=>'atom_entry', :layout=>false
+      }
+
+      format.html { }
+    end
+  end
+  
   ##
   # Generate a POST Template for that workflow definition
   #
@@ -42,15 +114,19 @@ class WfcsDefinitionsController < ApplicationController
     xform = 'default.xform' if xform == ''
     filestr = "#{RAILS_ROOT}/public/xforms/#{xform}"
     if File.exists?(filestr)
-      str = IO.read(filestr)
-      doc = REXML::Document.new( str )
-      entry = REXML::XPath.first(doc,'//entry' )
-      xml = "<?xml version='1.0'?>\n"
-      entry.attributes['xmlns']="http://www.w3.org/2005/Atom"
-      entry.attributes['xmlns:g']="http://geopbms/1.0"
+      begin
+        str = IO.read(filestr)
+        doc = REXML::Document.new( str )
+        entry = REXML::XPath.first(doc,'//entry' )
+        xml = "<?xml version='1.0'?>\n"
+        entry.attributes['xmlns']="http://www.w3.org/2005/Atom"
+        entry.attributes['xmlns:g']="http://geopbms/1.0"
 
-      xml += entry.to_s
-      render :xml=>xml
+        xml += entry.to_s
+        render :xml=>xml
+      rescue Exception=>e
+        render :text=>"Error: #{e}"
+      end
     end 
   end
 
@@ -149,12 +225,7 @@ class WfcsDefinitionsController < ApplicationController
       filestr = "#{RAILS_ROOT}/public/xforms/#{xform}"
       #check if we have an xform
       if xform.size>0 && File.exists?(filestr)
-        #@html = IO.read(filestr)
-        #render :partial=>"xforms", :layout=>false
-        #render :file=>filestr, :content_type => "application/xhtml+xml"
         render :file=>filestr, :content_type => "application/xml"
-        #xml = IO.read(filestr)
-        #render :xml=>xml
       end
 
       # otherwise use the default lauch capability

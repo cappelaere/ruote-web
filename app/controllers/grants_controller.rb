@@ -6,9 +6,9 @@ class GrantsController < ApplicationController
 	
 	active_scaffold :oauth_grant do |config|
 	  config.label 	 = "Grants Entries"
-	  config.columns = [ :consumer, :realm, :created_at, :updated_at]
+	  config.columns = [ :client_name, :realm, :created_at, :updated_at]
 	  
-	  config.create.columns = [ :provider_id, :realm]
+	  config.create.columns = [ :client_name, :realm]
 
 	  list.sorting = {:realm => 'ASC'}
 	end	

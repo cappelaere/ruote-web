@@ -1,0 +1,19 @@
+<h2>Workflow:</h2>
+<table>
+<tr><td>Title:</td><td><%= @record.title %></td></tr>
+<tr><td>Description:</td><td><%= @record.content %></td></tr>
+<tr><td>Category:</td><td><%= @record.category %></td></tr>
+<tr><td>Id:</td><td><%= @record.id %></td></tr>
+<tr><td>Permission:</td><td><%= @record.permission %></td></tr>
+<tr><td>Created By:</td><td><%= @record.login %></td></tr>
+<tr><td>Created At:</td><td><%= @record.created_at.to_s %></td></tr>
+<tr><td>Updated At:</td><td><%= @record.updated_at.to_s %></td></tr>
+</table>
+
+<h3>Definitions</h3>
+
+<% for definition in @record.definitions %>
+<li>
+	<%=def_url(definition) %>
+</li>
+<% end %>

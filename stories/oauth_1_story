@@ -1,0 +1,62 @@
+Story: Oauth
+	As an user
+	I want to access the site from a client application
+	So that I can create/access/update/delete/start workflows 
+	
+	Scenario: OAuth Anonymous Post	
+		Given anonymous user
+		When user tries to create a new workflow 
+		Then the status should be 302
+		
+		Given anonymous user
+		When user tries to create a new definition 
+		Then the status should be 302
+		
+		Given anonymous user
+		When user tries to create a new process 
+		Then the status should be 302  
+		
+		Given anonymous user
+		When user tries to update a workflow 
+		Then the status should be 302
+		
+		Given anonymous user 
+		When user tries to update a definition 
+		Then the status should be 302
+		
+		Given anonymous user
+		When user tries to update a process 
+		Then the status should be 302
+		
+		Given anonymous user
+		When user tries to delete a workflow 
+		Then the status should be 302
+		
+		Given anonymous user
+		When user tries to delete a definition 
+		Then the status should be 302
+		
+		Given anonymous user
+		When user tries to delete a process 
+		Then the status should be 302
+		
+	Scenario: User register a Client Application with Provider
+		Given an authorized user named: 'alice' and password: 'alice'
+		When user registers client 'test'	
+		Then the status should be 302
+		
+		When authorized user accesses '/oauth'
+		Then authorized user sees link 'test'
+		
+		Given an authorized user named: 'bob' and password: 'bob'
+		When authorized user accesses '/oauth'
+		Then authorized user does not see link 'test'
+		
+	Scenario: Authorized User CRUDs workflows
+		Given an authorized user named: 'alice' and password: 'alice'
+		When user registers client 'test'	
+		And user grants access to client 'test' realm '/wfcs/'	
+		Then the user can create a new workflow
+		And the user can publish the workflow
+		And the user can get the workflow
+		And the user can delete the workflow		

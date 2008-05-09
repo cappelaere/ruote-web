@@ -10,18 +10,22 @@ module WfcsDefinitionsHelper
 
   def xform(item)
     link = url_for :only_path => false, :controller=>"/wfcs_definitions", :action =>"xform", :id => item.id
-    "<a href='#{link}'>here</a>"
+    "<a href='#{link}'>here</a>" if item.xform && item.xform != ''
   end
   
   def template(item)
     link = url_for :only_path => false, :controller=>"/wfcs_definitions", :action =>"template", :id => item.id
-    "<a href='#{link}'>here</a>"
+    "<a href='#{link}'>here</a>" if item.xform && item.xform != ''
   end
   
   def flow(item)
     link = url_for :only_path => false, :controller=>"/wfcs_definitions", :action =>"flow", :id => item.id
     file = "/images/workflows/#{item.link}"
-    "<a href='#{link}'><img src='#{file}' width='100'/></a>"
+    if item.link
+      "<a href='#{link}'><img src='#{file}' width='100'/></a>" 
+    else
+      ""
+    end
   end
 
   def openwfe(item)
@@ -45,4 +49,10 @@ module WfcsDefinitionsHelper
         "n/a"
      end
    end
+   
+   def template_column(item)
+     xform = item.xform
+     template(item) if xform && xform != ''
+   end
+   
 end

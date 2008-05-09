@@ -36,20 +36,29 @@
 #
 # john.mettraux@openwfe.org
 #
+require 'lib/wfcs/utils'
 
 class LaunchpController < ApplicationController
 
   layout "densha"
 
   before_filter :authorize
-
+  include Wfcs
 
   #
   # Lists the process definitions this user is allowed to launch.
   #
   def index
 
+    wfid = params[:wfid]
+    if wfid
+      user = session[:user]
+      launch_workflow(user, wfid)
+    end
+    
     @launch_permissions = LaunchPermission.find_for_user(session[:user])
+    
+        
   end
 
   #
@@ -61,12 +70,12 @@ class LaunchpController < ApplicationController
 
     lp_id = params[:id]
 
+        
     lp = begin
 
         LaunchPermission.find lp_id
 
     rescue Exception => e
-
         return error_redirect("launch permission not found")
     end
 

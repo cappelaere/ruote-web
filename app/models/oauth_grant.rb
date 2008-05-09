@@ -1,13 +1,16 @@
 class OauthGrant < ActiveRecord::Base
 	
-	def consumer=(name)
-		provider = Provider.find_by_consumer_name(name)
-		raise "Invalid Consumer name" if provider == nil 
-		self.provider_id = provider.id
+	def client_name=(name)
+		client = ClientApplication.find_by_name(name)
+		raise "Invalid Client Application name" if client == nil 
+		self.client_application_id = client.id
 	end
 	
-	def consumer
-		provider = Provider.find(self.provider_id).consumer_name
+	def client_name
+	  begin
+		  ClientApplication.find(self.client_application_id).name
+	  rescue
+    end
 	end
 	
 	def user

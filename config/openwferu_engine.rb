@@ -54,7 +54,10 @@ ac[:dynamic_eval_allowed] = true
   #
   # the 'eval' expression is allowed
 
-
+  
+ac[:definition_in_launchitem_allowed] = true
+  # PGC to allow definition xml in launchitem
+  
 $openwferu_engine = Densha::Engine.new ac
 
 $openwferu_engine.reload_store_participants

@@ -1,0 +1,6 @@
+grant1:
+  id: 1
+  user_id: 1
+  client_application_id: 1
+  realm: '/wfcs'
+

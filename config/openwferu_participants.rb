@@ -1,4 +1,10 @@
 
+require 'openwfe/extras/participants/twitterparticipants'
+require 'openwfe/participants/enoparticipants'
+
+#config file
+config = YAML.load(File.read("#{RAILS_ROOT}/config/config.yml"))
+
 #
 # Put your openwferu participants here.
 #
@@ -37,6 +43,8 @@ end
 #
 # Note that store participant are registered in config/openwferu_engine.rb
 #
+$openwferu_engine.register_participant("TWITTER", 
+   OpenWFE::Extras::TwitterParticipant.new(config['twitter_name'], config['twitter_pass'], :no_ssl => true) )
 
 #
 # When all the participants have been registered, reschedule temporal

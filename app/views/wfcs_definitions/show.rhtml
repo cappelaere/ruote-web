@@ -1,0 +1,13 @@
+<h2>Definition:</h2>
+<table>
+    <tr><td>Version:</td><td><%= @record.version %></td></tr>
+    <tr><td>Created By:</td><td><%= User.find(@record.user_id).name %></td></tr>
+    <tr><td>Created At:</td><td><%= @record.created_at.to_s %></td></tr>
+    <tr><td>Updated At:</td><td><%= @record.updated_at.to_s %></td></tr>
+    <tr><td>Diagram:</td><td><%= flow(@record) %></td></tr>
+    <tr><td>XPDL:</td><td><%= xpdl(@record) %></td></tr>
+    <tr><td>OpenWFE:</td><td><%= openwfe(@record) %></td></tr>       
+    <tr><td>XForm:</td><td><%= xform(@record) %></td></tr>     
+    <tr><td>POST Template:</td><td><%= template(@record) %></td></tr>     
+  
+</table>

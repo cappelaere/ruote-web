@@ -1,15 +1,5 @@
 class AddOauthTables < ActiveRecord::Migration
   def self.up
-    create_table :providers do |t|
-      t.column :consumer_name, :string
-      t.column :consumer_description, :string
-      t.column :callback_url, :string
-      t.column :consumer_key, :string
-      t.column :consumer_secret, :string
-      t.column :created_at, :datetime
-      t.column :updated_at, :datetime
-      t.column :user_id, :int
-    end
 
     create_table :oauth_grants do |g|
       g.column :user_id, :int
@@ -19,24 +9,45 @@ class AddOauthTables < ActiveRecord::Migration
       g.column :updated_at, :datetime		
     end
 
-    create_table :provider_instances do |t|
-      t.column :provider_id, :integer
-      t.column :user_id, :integer
-      t.column :request_token, :string
-      t.column :request_secret, :string
-      t.column :access_token, :string
-      t.column :access_secret, :string
-      t.column :created_at, :datetime
-      t.column :updated_at, :datetime
-      t.column :callback_url, :string
-      t.column :realm, :string
-      t.column :expiry, :string
+    create_table :client_applications do |t|
+      t.string :name
+      t.string :url
+      t.string :support_url
+      t.string :callback_url
+      t.string :key, :limit=>50
+      t.string :secret, :limit=>50
+      t.integer :user_id
+
+      t.timestamps
     end
+    add_index :client_applications,:key,:unique
+    
+    create_table :oauth_tokens do |t|
+      t.integer :user_id
+      t.string :type,:limit=>20
+      t.integer :client_application_id
+      t.string :token, :limit=>50
+      t.string :secret, :limit=>50
+      t.timestamp :authorized_at,:invalidated_at
+      t.timestamps
+    end
+    
+    add_index :oauth_tokens,:token,:unique
+    
+    create_table :oauth_nonces do |t|
+      t.string :nonce
+      t.integer :timestamp
+
+      t.timestamps
+    end
+    add_index :oauth_nonces,[:nonce,:timestamp],:unique
+    
   end
 
   def self.down
-    drop_table :providers
     drop_table :oauth_grants
-    drop_table :provider_instances
+    drop_table :client_applications
+    drop_table :oauth_tokens
+    drop_table :oauth_nonces
   end
 end

@@ -1,14 +1,24 @@
 require 'builder'
 require 'lib/wfcs/utils'
+require 'openwfe'
 
 class WfcsProcessesController < ApplicationController
   include Wfcs
 
-  before_filter :check_ids
-  
-	active_scaffold :wf_process
   layout 'processes'
 
+  before_filter :login_or_oauth_required, :only=>[:create, :edit, :update, :destroy]
+  before_filter :check_ids, :only=>[:create, :edit, :update]
+  
+	active_scaffold :wf_process
+
+  active_scaffold :wf_process do |config|
+     config.label = "Processes Entries"
+     config.columns = [ :id, :title, :content, :category, :context_data, :result_data, :command, :created_at, :updated_at, :scheduled_at, :status, :wfid, :login]
+
+     list.sorting = {:updated_at => 'DESC'}
+  end
+   
   def index
     ##
     # TODO restrict to what you can see
@@ -81,8 +91,7 @@ class WfcsProcessesController < ApplicationController
       raise "no xml available"
     end
 
-    # turn context_data into a Hash
-    hash_str = gen_hash_str(context_data)
+    context_data = context_data.to_hash
 
     @process = WfProcess.new( :definition_id=>@definition.id,
       :user_id      => user_id,
@@ -90,48 +99,45 @@ class WfcsProcessesController < ApplicationController
       :content      => content,
       :category     => category,
       :command      => command,
-      :context_data => hash_str,
+      :context_data => to_xml(context_data),
       :status       => "scheduled",
       :scheduled_at => Time.now.utc )
       
     @process.save!
 
-    @wfid = submitFlow( user_id, @process.id, name, flow, context_data, command )
+    @wfid = submitFlow( user_id, @process.id, title, flow, context_data, command )
     @process.wfid = @wfid
 
     respond_to do |format|
       if @process.save!
         flash[:notice] = 'Workflow process was successfully created.'
 
-        format.atom {
-          #puts "*** created return head - atom"
-          #head :created, :location => process_url(@process)+".atom"  
-
-          # should not be necessary but only works with specific rails versions       	
-          response.headers["Location"] = process_url(@process)
-
-          xml = Builder::XmlMarkup.new(:indent => 2)
-          @entry =  render_to_string :partial=>"feed/atom10_wfprocess_item", :locals => {:item => @process, :xm => xml }
-
-          #render :status => :created, :location => process_url(@process), :content_type => "application/atom+xml"
-          #render :atom does not work
-          render :text => "<?xml version='1.0' ?>#{@entry}", :location => process_url(@process), :content_type => "application/atom+xml;type=entry"
+        format.atom { 
+          head :created, :location => process_url(@process)+".atom"
         }
 
         format.xml  { 
-          #puts "*** created return head - xml: #{process_url(@process)}"
           head :created, :location => process_url(@process)+".xml"
         }
 
         format.html { 
-          #puts "*** created return head - html"
-          #head :created, :location => process_url(@process)
           redirect_to process_url(@process)+".html"
         }
       end
     end
   end
 
+  def results
+     id = params[:id]
+     process = WfProcess.find(id)
+     xml = process.result_data
+     if xml == nil
+       render :xml=>"<result_data>NOT AVAILABLE YET</result_data>"
+     else    
+       render :xml=>"<result_data>#{xml}</result_data>"
+     end
+   end
+   
   private
 
   def generate_atom_feed
@@ -142,15 +148,15 @@ class WfcsProcessesController < ApplicationController
   end
   
   ##
-  # turn context_data into a Hash
-  def gen_hash_str(context_data)
+  # turn context_data Hash into XML
+  def to_xml(context_data)
     hash_str = ""
     if context_data
-      context_data = context_data.to_hash
       context_data.each do |k,v|
         hash_str += "  <#{k}>#{v}</#{k}>\n"
       end
     end
+    hash_str
   end
 
   ##
@@ -177,7 +183,7 @@ class WfcsProcessesController < ApplicationController
   # 
   def submitFlow( user_id, inst_id, flowname, flow, contextData, cmd_options )
     begin
-      launchitem              = LaunchItem.new(flow)
+      launchitem              = OpenWFE::LaunchItem.new(flow)
       launchitem.user_id      = user_id
       launchitem.instance_id  = inst_id
       launchitem.flowname     = flowname
@@ -185,8 +191,10 @@ class WfcsProcessesController < ApplicationController
 
       # all workflow parameters are in contextData
       if contextData
+        puts "submitFlow contextData: #{contextData}"
         contextData.each do |k,v|
-          eval( "launchitem.#{k} = '#{v}'")
+          puts( "launchitem.#{k} = '#{v}'")
+          eval( "launchitem.#{k} = '#{v}'")  if v && k
         end
       end
 
@@ -210,6 +218,7 @@ class WfcsProcessesController < ApplicationController
         flow_expression_id = $openwferu_engine.launch(launchitem, :every=>cmd_options)
 
       else
+        puts "launchitem: #{launchitem.inspect}"
         flow_expression_id = $openwferu_engine.launch(launchitem)
       end
 
@@ -219,4 +228,19 @@ class WfcsProcessesController < ApplicationController
     end
   end
 
+end
+
+class REXML::Element
+  def to_hash(default_hash = {})
+    convert_node_to_hash(self, default_hash)
+  end
+  
+  protected
+    def convert_node_to_hash(node, hash)
+      node.elements.each do |elm|
+        hash[elm.name] = elm.elements.empty? ? elm.text : convert_node_to_hash(elm, hash)
+      end
+      puts "*** context_data hash: #{hash.inspect}"
+      return hash
+    end
 end
