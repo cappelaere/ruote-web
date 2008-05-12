@@ -1,3 +1,4 @@
+ wfxml changes
 
 = openwferu-densha CHANGELOG.txt
 
